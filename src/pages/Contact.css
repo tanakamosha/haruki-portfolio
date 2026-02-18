@@ -1,0 +1,132 @@
+/* Contact Page Styles */
+.contact-section {
+    padding-top: 120px !important;
+    padding-bottom: 80px;
+    background-color: var(--color-bg-light); /* Or white as requested */
+}
+
+.contact-content-centered {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    /* Font size etc handled by global h1/h2 styles usually, keeping defaults */
+}
+
+.section-subtitle {
+    margin-bottom: 3rem;
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
+
+/* Highlight Text Wrapper */
+.contact-highlight-wrapper {
+    margin-bottom: 40px;
+}
+
+.contact-highlight-text {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700;   /* font-bold */
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.highlight-marker {
+    display: inline-block;
+    color: #2563eb;       /* text-blue-600 */
+    font-size: 1.875rem;  /* text-3xl */
+    font-weight: 900;     /* font-black */
+    margin: 0 8px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Marker effect (yellow underline/background) */
+.highlight-marker::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: -5%;
+    width: 110%;
+    height: 35%;
+    background: linear-gradient(to right, rgba(254, 240, 138, 0.8), rgba(254, 240, 138, 0)); /* from-yellow-200 */
+    z-index: -1;
+    transform: rotate(-1deg);
+}
+
+/* Action Area */
+.contact-action-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.email-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s;
+}
+
+.email-link:hover {
+    color: #2563eb; /* text-blue-600 */
+}
+
+.secondary-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.secondary-text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #2563eb; /* blue-600 */
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+.contact-btn:hover {
+    background-color: #1d4ed8; /* blue-700 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-icon {
+    transition: transform 0.2s;
+}
+
+.contact-btn:hover .btn-icon {
+    transform: translate(3px, -3px);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .highlight-marker {
+        font-size: 1.5rem;
+    }
+    
+    .email-link {
+        font-size: 1.2rem;
+    }
+}

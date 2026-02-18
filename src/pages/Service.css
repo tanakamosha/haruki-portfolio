@@ -1,0 +1,178 @@
+.service-header {
+    text-align: center;
+    padding-top: 120px !important;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    padding: 40px;
+    border-radius: 16px;
+    /* rounded-2xl */
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.service-card:hover {
+    transform: scale(1.02);
+    /* Premium scale effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-accent);
+}
+
+.service-img-wrapper img {
+    transition: transform 0.7s ease;
+}
+
+.service-card:hover .service-img-wrapper img {
+    transform: scale(1.05);
+    /* Smooth zoom */
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-accent);
+}
+
+.service-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    font-family: var(--font-en);
+}
+
+.service-desc {
+    color: var(--color-text-light);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.service-features {
+    text-align: left;
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+}
+
+.service-features li {
+    margin-bottom: 10px;
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+
+/* New Service Styles */
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.benefit-card {
+    background: #fff;
+    padding: 30px;
+    padding: 30px;
+    border-radius: 16px;
+    /* rounded-2xl */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: #f0f0f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.benefit-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.flow-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.flow-step {
+    text-align: center;
+    position: relative;
+    padding: 20px;
+}
+
+.step-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(26, 26, 46, 0.1);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.flow-step h3 {
+    margin-top: 40px;
+    /* Make space for big number */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.flow-step p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.flow-line {
+    display: none;
+    /* Simplify for responsive first, maybe add arrow later if time permits */
+}
+
+@media (max-width: 768px) {
+    .flow-container {
+        grid-template-columns: 1fr;
+    }
+
+    .step-num {
+        font-size: 2.5rem;
+        top: 10px;
+        left: 20px;
+        transform: none;
+    }
+
+    .flow-step {
+        text-align: left;
+        padding-left: 80px;
+    }
+
+    .flow-step h3 {
+        margin-top: 0;
+    }
+}
