@@ -1,46 +1,124 @@
 import React from 'react';
 import Section from '../components/ui/Section';
-import { Mail, Send } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
+    // Scroll Fade-in Logic (Mirrored from Service.jsx)
+    React.useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('.fade-in-section');
+        elements.forEach(el => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div className="contact-page page-transition">
-            <Section className="contact-section">
-                <div className="contact-content-centered max-w-4xl mx-auto px-4 pb-40">
-                    <div style={{ marginBottom: '60px', textAlign: 'center' }}>
-                        <h1 className="section-title text-4xl font-bold tracking-widest mb-2">CONTACT</h1>
-                        <span className="text-slate-600">お問い合わせ</span>
-                    </div>
+            <Section className="contact-header fade-in-section">
+                {/* Background Watermark (Physical DOM) */}
+                <div style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    fontSize: "15vw",
+                    fontWeight: "900",
+                    color: "#f3f4f6", /* Very light gray */
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    whiteSpace: "nowrap",
+                    userSelect: "none",
+                    lineHeight: 1
+                }}>
+                    CONTACT
+                </div>
 
-                    <div className="contact-action-area bg-white shadow-2xl rounded-2xl p-10 md:p-16 border border-gray-100 flex flex-col items-center">
-                        <p className="section-subtitle" style={{ marginBottom: '2rem' }}>
-                            制作のご依頼・ご相談は <span className="text-slate-900 bg-yellow-300 px-2 py-1 rounded font-black text-2xl inline-block transform -rotate-1 mx-1">完全無料</span> です。
-                        </p>
+                {/* Content Layer */}
+                <h1 style={{ position: 'relative', zIndex: 10 }}>CONTACT</h1>
+                <p style={{ position: 'relative', zIndex: 10 }}>お仕事のご相談・お見積もりなど、お気軽にお問い合わせください。</p>
+            </Section>
 
-                        <a href="mailto:h.wakiyama@gmail.com" className="flex items-center gap-3 text-3xl font-bold text-slate-800 hover:text-blue-600 transition-all duration-300 hover:-translate-y-1" style={{ textDecoration: 'none' }}>
-                            <Mail size={36} />
-                            h.wakiyama@gmail.com
-                        </a>
+            {/* Contact Form Section */}
+            <Section>
+                <div className="contact-form-container fade-in-section" style={{ transitionDelay: '200ms' }}>
+                    <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
 
-                        <div className="flex items-center gap-4 my-8 text-slate-400 font-medium select-none">
-                            <span className="h-px w-12 bg-slate-300"></span> OR <span className="h-px w-12 bg-slate-300"></span>
+                        {/* Name */}
+                        <div className="form-group">
+                            <label className="form-label-required">お名前</label>
+                            <input type="text" className="form-input" placeholder="例：田中 太郎" required />
                         </div>
 
-                        <a href="mailto:h.wakiyama@gmail.com"
-                            className="btn-contact-custom mb-12 text-lg"
-                            style={{
-                                width: '280px',
-                                minWidth: '280px',
-                                maxWidth: '280px',
-                                display: 'inline-flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                margin: '0 auto'
-                            }}
+                        {/* Company */}
+                        <div className="form-group">
+                            <label className="form-label-optional">会社名</label>
+                            <input type="text" className="form-input" placeholder="例：株式会社〇〇" />
+                        </div>
+
+                        {/* Email */}
+                        <div className="form-group">
+                            <label className="form-label-required">メールアドレス</label>
+                            <input type="email" className="form-input" placeholder="例：info@example.com" required />
+                        </div>
+
+                        {/* Category */}
+                        <div className="form-group">
+                            <label className="form-label-required">ご相談内容</label>
+                            <select className="form-select">
+                                <option value="web">Webサイト制作・開発</option>
+                                <option value="graphic">グラフィックデザイン</option>
+                                <option value="video">動画編集・映像制作</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+
+                        {/* Message */}
+                        <div className="form-group">
+                            <label className="form-label-required">メッセージ本文</label>
+                            <textarea className="form-textarea" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+                        </div>
+
+                        {/* Submit Button */}
+                        <div className="btn-submit-wrapper">
+                            <button type="submit" className="btn-submit">
+                                この内容で送信する
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </Section>
+
+            {/* Coconala Referral Section */}
+            <Section>
+                <div className="coconala-container fade-in-section" style={{ transitionDelay: '400ms' }}>
+                    <div className="coconala-card">
+                        <h3>ココナラ経由でのご依頼も承っております</h3>
+                        <p>
+                            匿名でのやり取りや、安心の決済システムをご希望のお客様は、<br className="hidden md:block" />
+                            クラウドソーシングサイト『ココナラ』の専用ページからもご相談・お見積りが可能です。
+                        </p>
+                        <a
+                            href="https://coconala.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-coconala"
                         >
-                            お問い合わせフォームへ
-                            <Send size={18} className="btn-icon ml-2 inline-block" />
+                            ココナラで相談する
                         </a>
                     </div>
                 </div>

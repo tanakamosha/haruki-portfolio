@@ -18,29 +18,19 @@ const Footer = () => {
                     {/* Center: Navigation */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-sm font-bold text-gray-500">MENU</h3>
-                        <div className="flex flex-col gap-2">
-                            <Link to="/" className="text-sm hover:text-blue-400 transition-colors">HOME</Link>
-                            <Link to="/works" className="text-sm hover:text-blue-400 transition-colors">SELECTED WORKS</Link>
-                            <Link to="/service" className="text-sm hover:text-blue-400 transition-colors">SERVICES</Link>
-                            <Link to="/" className="text-sm hover:text-blue-400 transition-colors" onClick={(e) => {
-                                e.preventDefault();
-                                const contactSection = document.getElementById('contact');
-                                if (contactSection) {
-                                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                                } else {
-                                    window.location.href = '/#contact';
-                                }
-                            }}>WORK FLOW</Link>
-                            <Link to="/contact" className="text-sm hover:text-blue-400 transition-colors">CONTACT</Link>
-                        </div>
+                        <Link to="/" className="text-sm hover:text-blue-400 transition-colors">HOME</Link>
+                        <Link to="/works" className="text-sm hover:text-blue-400 transition-colors">WORKS</Link>
+                        <Link to="/service" className="text-sm hover:text-blue-400 transition-colors">SERVICE</Link>
+                        <Link to="/about" className="text-sm hover:text-blue-400 transition-colors">ABOUT</Link>
+                        <Link to="/contact" className="text-sm hover:text-blue-400 transition-colors">CONTACT</Link>
                     </div>
 
                     {/* Right: Legal & Social */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-sm font-bold text-gray-500">LEGAL & SOCIAL</h3>
                         <div className="flex flex-col gap-2 mb-2">
-                            <a href="#" className="text-sm hover:text-blue-400 transition-colors">プライバシーポリシー</a>
-                            <a href="#" className="text-sm hover:text-blue-400 transition-colors">特定商取引法に基づく表記</a>
+                            <Link to="/privacy" className="text-sm hover:text-blue-400 transition-colors">プライバシーポリシー</Link>
+                            <Link to="/law" className="text-sm hover:text-blue-400 transition-colors">特定商取引法に基づく表記</Link>
                         </div>
                         <div className="flex gap-4">
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-white hover:text-blue-400 transition-colors">
