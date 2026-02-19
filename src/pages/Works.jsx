@@ -20,20 +20,7 @@ const worksData = [
         price: '¥250,000〜',
         url: 'https://hudousan-test.vercel.app/'
     },
-    {
-        id: 2,
-        title: 'Tech Innovations Inc.',
-        category: 'Print',
-        scope: 'パンフレットデザイン',
-        image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop',
-        desc: 'Corporate brochure for a tech firm.',
-        issue: '複雑な技術情報を投資家にわかりやすく伝える必要があった。',
-        solution: 'クリーンなインフォグラフィックと構造化されたレイアウトを作成。AIを活用して技術仕様を読みやすい文章に要約しました。',
-        result: '3つの主要カンファレンスで配布され、好評を得ました。',
-        period: '2週間',
-        tools: 'Illustrator / Photoshop',
-        price: '¥100,000〜'
-    },
+
     {
         id: 3,
         title: 'Future Coffee',
@@ -63,20 +50,7 @@ const worksData = [
         price: '¥800,000〜',
         url: 'https://example.com'
     },
-    {
-        id: 5,
-        title: 'Music Festival 2026',
-        category: 'Print',
-        scope: 'ポスター / フライヤー',
-        image: '/tirasi2.jpg',
-        desc: 'Key visual for a summer festival.',
-        issue: 'イベントの熱狂を伝えるビジュアルが必要だった。',
-        solution: 'AIであふれるエネルギーを表現した抽象画を生成し、タイポグラフィと組み合わせて洗練させました。',
-        result: 'チケットが発売3日で完売しました。',
-        period: '10日間',
-        tools: 'Photoshop / Illustrator / Midjourney',
-        price: '¥80,000〜'
-    },
+
     {
         id: 6,
         title: 'Indie Band MV',
@@ -90,6 +64,48 @@ const worksData = [
         period: '3週間',
         tools: 'After Effects / Blender',
         price: '¥200,000〜'
+    },
+    {
+        id: 7,
+        title: 'URBAN JAZZ NIGHT 2026 フライヤー',
+        category: 'Print',
+        scope: 'フライヤーデザイン',
+        image: '/tirasi3.png',
+        desc: '架空のジャズフェスティバルの魅力を伝える、スタイリッシュなフライヤーデザインです。',
+        issue: '若年層のアートファンを新たに取り込みたいという要望があった。',
+        solution: '夜の街のネオンを想起させる配色と、躍動感のあるタイポグラフィで「非日常感」を演出しました。',
+        result: 'イベントのプレオーダー数が前年比150%を記録。',
+        period: '5日間',
+        tools: 'Illustrator / Photoshop',
+        price: '¥50,000〜'
+    },
+    {
+        id: 8,
+        title: 'IT活用セミナー告知チラシ',
+        category: 'Print',
+        scope: 'チラシデザイン',
+        image: '/tirasi4.png',
+        desc: 'ターゲット層に合わせ、情報をわかりやすく整理したセミナー集客用デザインです。',
+        issue: '「ITは難しい」というイメージを払拭し、初心者を集客したい。',
+        solution: '親しみやすいイラストと、視線の流れを意識したレイアウトで、ベネフィットを直感的に伝えました。',
+        result: '定員50名が配布後1週間で満席となりました。',
+        period: '3日間',
+        tools: 'Illustrator',
+        price: '¥30,000〜'
+    },
+    {
+        id: 9,
+        title: 'ココナラ出品用PRバナー・チラシ',
+        category: 'Print',
+        scope: 'バナー / チラシ',
+        image: '/tirasi5.jpg',
+        desc: 'サービスの魅力を視覚的にわかりやすく伝えるPR用グラフィック制作です。',
+        issue: '数あるサービスの中で、一目で「信頼」と「高品質」を伝える必要があった。',
+        solution: '実績数字を強調しつつ、ポートフォリオの一部をコラージュして「作れるものの幅広さ」を表現しました。',
+        result: '閲覧数（PV）と問い合わせ率が大幅に向上。',
+        period: '2日間',
+        tools: 'Photoshop / Figma',
+        price: '¥15,000〜'
     },
 ];
 

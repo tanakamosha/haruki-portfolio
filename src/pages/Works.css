@@ -216,9 +216,33 @@ main,
         /* Smaller on mobile */
     }
 
+    /* Mobile: Filter Buttons (2 Columns) */
     .filter-container {
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
         margin-bottom: 60px;
+        width: 100%;
+        padding: 0 10px;
+        /* Slight padding */
+    }
+
+    .custom-filter-btn {
+        width: 100% !important;
+        margin: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 0 !important;
+        /* Taller touch target */
+    }
+
+    /* Mobile: Modal Link Button (Full Width) */
+    .site-link-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        padding: 12px;
     }
 }
 
@@ -254,8 +278,11 @@ main,
 .work-image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    /* Changed from cover to contain */
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: #f3f4f6;
+    /* Light gray background for padding */
 }
 
 .work-card-item:hover .work-image-wrapper img {
@@ -272,11 +299,14 @@ main,
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: 1;
+    pointer-events: none;
+    /* Allow clicks to pass through if needed */
 }
 
 .work-card-item:hover .work-image-wrapper::after {
-    opacity: 0.15;
-    /* ~15% overlay */
+    opacity: 0.1;
+    /* Reduced opacity for better visibility of contained images */
+    /* ~10% overlay */
 }
 
 /* Category Badge */
@@ -352,7 +382,8 @@ main,
     width: 100%;
     max-width: 900px;
     /* Wider for details */
-    max-height: 85vh;
+    max-height: 90vh;
+    /* Increased height */
     border-radius: 16px;
     overflow-y: auto;
     position: relative;
@@ -399,15 +430,24 @@ main,
 .modal-image {
     width: 100%;
     height: auto;
-    max-height: 450px;
+    max-height: 80vh;
+    /* Limit height to fit screen */
     overflow: hidden;
     position: relative;
+    background-color: #f3f4f6;
+    /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-height: 80vh;
+    /* Ensure image doesn't overflow container */
+    object-fit: contain;
+    /* Show full image */
 }
 
 .modal-body {
