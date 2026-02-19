@@ -30,7 +30,7 @@
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 40px;
     /* Increased padding */
     display: flex;
     justify-content: space-between;
@@ -50,9 +50,22 @@
 
 /* Navigation */
 .desktop-nav {
-    display: flex;
+    display: none;
+    /* Hidden by default (Mobile) */
     align-items: center;
     gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex;
+        /* Visible on PC */
+    }
+
+    .mobile-menu-toggle {
+        display: none !important;
+        /* Force hidden on PC */
+    }
 }
 
 .nav-links {
@@ -122,7 +135,7 @@
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
-    display: none;
+    /* display: none; - Handled by Tailwind md:hidden */
     background: none;
     border: none;
     cursor: pointer;
@@ -180,14 +193,4 @@
     font-weight: 600;
     color: #0f172a;
     text-decoration: none;
-}
-
-@media (max-width: 768px) {
-    .desktop-nav {
-        display: none;
-    }
-
-    .mobile-menu-toggle {
-        display: block;
-    }
 }

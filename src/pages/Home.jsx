@@ -62,10 +62,8 @@ const Home = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     textAlign: 'center',
-                    justifyContent: 'center',
-                    textAlign: 'center',
                     minHeight: '100vh',
-                    minHeight: '600px', /* Mobile fallback */
+                    /* minHeight: '600px', Mobile fallback - removed duplicate */
                     paddingTop: '120px',
                     paddingBottom: '40px',
                     width: '100%',
@@ -102,7 +100,6 @@ const Home = () => {
                     <p style={{
                         fontSize: '1.1rem',
                         marginBottom: '1.5rem',
-                        lineHeight: '1.8',
                         color: '#0f172a',
                         textShadow: '0 0 20px rgba(255,255,255,1)',
                         fontWeight: '600',
@@ -125,15 +122,30 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 2. SELECTED WORKS (White Background) */}
-            <section id="section-works" className="bg-white scroll-mt-20" style={{ padding: '100px 0' }}>
-                <div style={baseContainerStyle} className="max-w-6xl mx-auto px-4">
-                    <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            {/* 2. SELECTED WORKS (Light Gray Background) */}
+            <section id="section-works" className="scroll-mt-20 relative overflow-hidden" style={{ padding: '70px 0', backgroundColor: '#f8f9fa' }}>
+                {/* Background Animation - Explicit Styles for Reliability */}
+                <div className="works-bg-shapes" style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    overflow: 'hidden',
+                    zIndex: 0,
+                    pointerEvents: 'none'
+                }}>
+                    <div className="floating-shape shape-1"></div>
+                    <div className="floating-shape shape-2"></div>
+                </div>
+
+                <div style={{ ...baseContainerStyle, position: 'relative', zIndex: 1 }} className="max-w-6xl mx-auto px-4">
+                    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">SELECTED WORKS</h2>
                         <span className="text-slate-600">制作実績</span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-0">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 md:px-0">
                         {[
                             { title: 'Namaste Shavasana', cat: 'Webデザイン / コーディング', tag: 'Web', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop' },
                             { title: 'Tech Innovations Inc.', cat: '会社案内パンフレット', tag: 'Print', img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop' },
@@ -171,7 +183,7 @@ const Home = () => {
                         ))}
                     </div>
 
-                    <div style={{ textAlign: 'center', marginTop: '60px' }}>
+                    <div className="section-cta-wrapper" style={{ textAlign: 'center', marginTop: '60px' }}>
                         <Link to="/works" className="transition-all duration-300 hover:bg-blue-700 hover:text-white hover:-translate-y-1 hover:scale-105 hover:shadow-lg" style={{
                             display: 'inline-block',
                             border: '1px solid #2563eb',
@@ -187,15 +199,15 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 3. SERVICES (Light Gray Background) */}
-            <section id="section-service" className="bg-gray-50 scroll-mt-20" style={{ padding: '100px 0', position: 'relative', zIndex: 30 }}>
+            {/* 3. SERVICES (White Background) */}
+            <section id="section-service" className="scroll-mt-20" style={{ padding: '70px 0', position: 'relative', zIndex: 30, backgroundColor: '#ffffff' }}>
                 <div style={baseContainerStyle} className="max-w-6xl mx-auto px-4">
-                    <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">SERVICES</h2>
                         <span className="text-slate-600">事業内容</span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0">
                         {[
                             {
                                 title: 'Web Production',
@@ -252,7 +264,6 @@ const Home = () => {
                                         </span>
                                         <p style={{
                                             color: '#4b5563', /* Slightly darker than usual for readability */
-                                            lineHeight: '1.6',
                                             fontSize: '0.95rem',
                                             textAlign: 'left',
                                             lineHeight: '1.8' /* relaxed */
@@ -265,7 +276,7 @@ const Home = () => {
                         ))}
                     </div>
 
-                    <div style={{ textAlign: 'center', marginTop: '60px' }}>
+                    <div className="section-cta-wrapper" style={{ textAlign: 'center', marginTop: '60px' }}>
                         <Link to="/service" className="transition-all duration-300 hover:bg-blue-700 hover:text-white hover:-translate-y-1 hover:scale-105 hover:shadow-lg" style={{
                             display: 'inline-block',
                             border: '1px solid #2563eb',
@@ -281,14 +292,9 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 3.5. STRENGTHS (White Background) */}
-            <section className="bg-white scroll-mt-20" style={{ padding: '100px 0', position: 'relative', zIndex: 10 }}>
-                {/* 斜めライン (White to White transition = invisible, but kept for future) */}
-                <div style={{ position: 'absolute', top: '-1px', left: 0, width: '100%', overflow: 'hidden', lineHeight: 0, zIndex: 20 }}>
-                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ position: 'relative', display: 'block', width: 'calc(100% + 1.3px)', height: '60px' }}>
-                        <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="#f9fafb"></path>
-                    </svg>
-                </div>
+            {/* 3.5. STRENGTHS (Light Gray Background) */}
+            <section className="scroll-mt-20" style={{ padding: '70px 0', position: 'relative', zIndex: 10, backgroundColor: '#f8f9fa' }}>
+                {/* Diagonal Line Removed for clean separation */}
 
                 <div className="strengths-content-fix max-w-5xl mx-auto px-4 relative z-20" style={{ ...baseContainerStyle }}>
                     <div className="fade-up-element strengths-header-overlap" style={{ textAlign: 'center', marginBottom: '60px' }}>
@@ -303,7 +309,7 @@ const Home = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="fade-up-element delay-100 bg-gray-50 border-gray-200 hover:scale-[1.02] duration-300" style={{ padding: '40px', borderRadius: '16px', border: '1px solid #e5e7eb' }}>
+                        <div className="fade-up-element delay-100 bg-white border-gray-100 hover:scale-[1.02] duration-300" style={{ padding: '40px', borderRadius: '16px', border: '1px solid #e5e7eb', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)' }}>
                             <div style={{ color: '#2563eb', marginBottom: '20px' }}><Zap size={40} /></div>
                             <h3 style={{ fontSize: '1.25rem', marginBottom: '10px', fontWeight: 'bold', color: '#111827' }}>AI × Speed</h3>
                             <p style={{ lineHeight: '1.8', color: '#4b5563' }}>
@@ -311,7 +317,7 @@ const Home = () => {
                                 従来の制作プロセスを劇的に短縮し、圧倒的なスピードでドラフト提案〜納品までを実現します。
                             </p>
                         </div>
-                        <div className="fade-up-element delay-200 bg-gray-50 border-gray-200 hover:scale-[1.02] duration-300" style={{ padding: '40px', borderRadius: '16px', border: '1px solid #e5e7eb' }}>
+                        <div className="fade-up-element delay-200 bg-white border-gray-100 hover:scale-[1.02] duration-300" style={{ padding: '40px', borderRadius: '16px', border: '1px solid #e5e7eb', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)' }}>
                             <div style={{ color: '#2563eb', marginBottom: '20px' }}><Layers size={40} /></div>
                             <h3 style={{ fontSize: '1.25rem', marginBottom: '10px', fontWeight: 'bold', color: '#111827' }}>Illustrator Quality</h3>
                             <p style={{ lineHeight: '1.8', color: '#4b5563' }}>
@@ -323,34 +329,54 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 4. WORK FLOW (Light Gray Background) */}
-            <section className="bg-gray-50 scroll-mt-20" style={{ padding: '100px 0' }}>
+            {/* 4. WORK FLOW (White Background) */}
+            <section className="scroll-mt-20" style={{ padding: '70px 0', backgroundColor: '#ffffff' }}>
                 <div style={baseContainerStyle} className="max-w-4xl mx-auto px-4">
-                    <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">WORK FLOW</h2>
                         <span className="text-slate-600">制作の流れ</span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         {[
                             { num: '01', icon: Smartphone, en: 'Hearing', jp: '課題ヒアリング' },
                             { num: '02', icon: Zap, en: 'Planning', jp: '企画・ラフ提案' },
                             { num: '03', icon: PenTool, en: 'Production', jp: '制作・修正' },
                             { num: '04', icon: MonitorPlay, en: 'Delivery', jp: '納品・公開' }
                         ].map((step, index) => (
-                            <div key={index} className="bg-white shadow-sm relative overflow-hidden hover:scale-[1.02] duration-300" style={{
+                            <div key={index} className="bg-white shadow-sm relative hover:scale-[1.02] duration-300" style={{
                                 padding: '40px 24px',
                                 borderRadius: '16px',
                                 textAlign: 'center',
                                 border: '1px solid #e2e8f0'
+                                // Removed isolation: 'isolate' to use standard stacking
                             }}>
-                                {/* Huge Watermark Number */}
-                                <span className="absolute -top-12 -left-4 text-6xl md:text-10rem font-black text-gray-200 opacity-30 md:opacity-50 z-0 select-none leading-none pointer-events-none">
-                                    {step.num}
-                                </span>
+                                {/* Background Number - Absolute Positioned (Z-Index 0) */}
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '0',
+                                    right: '0',
+                                    zIndex: '0', // Changed from -1 to 0 (Above BG, Below Content)
+                                    pointerEvents: 'none',
+                                    fontFamily: 'Oswald, sans-serif',
+                                    lineHeight: '1',
+                                    userSelect: 'none',
+                                    overflow: 'hidden', // Clip to rounded corners
+                                    height: '100%',
+                                    width: '100%',
+                                    borderRadius: '16px'
+                                }}>
+                                    <span style={{
+                                        position: 'absolute',
+                                        top: '-15%',
+                                        right: '-5%',
+                                    }} className="text-6xl md:text-[8rem] font-black text-slate-300 opacity-50">
+                                        {step.num}
+                                    </span>
+                                </div>
 
-                                {/* Foreground Content */}
-                                <div className="z-10 relative">
+                                {/* Foreground Content - Relative & Z-Index 10 (Strictly above number) */}
+                                <div className="relative z-10">
                                     <div style={{ color: '#2563eb', marginBottom: '20px' }}>
                                         <step.icon size={36} style={{ display: 'inline-block' }} />
                                     </div>
@@ -363,29 +389,30 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 5. CONTACT (Gray Background) */}
-            <section id="contact" className="bg-gray-50 pt-24 pb-40 scroll-mt-20">
+            {/* 5. CONTACT (Light Gray Background) */}
+            <section id="contact" className="scroll-mt-20" style={{ padding: '70px 0 100px 0', backgroundColor: '#f8f9fa' }}>
                 <div style={{ ...baseContainerStyle, textAlign: 'center' }}>
                     <div style={{ marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">CONTACT</h2>
                         <span className="text-slate-600">お問い合わせ</span>
                     </div>
 
-                    <div className="contact-action-area bg-white shadow-2xl rounded-2xl p-10 md:p-16 max-w-4xl mx-auto border border-gray-100 flex flex-col items-center">
-                        <p className="section-subtitle" style={{ marginBottom: '2rem' }}>
-                            制作のご依頼・ご相談は <span className="text-slate-900 bg-yellow-300 px-2 py-1 rounded font-black text-2xl inline-block transform -rotate-1 mx-1">完全無料</span> です。
+                    {/* Contact Content Wrapper - STRICT REFACTOR */}
+                    <div className="contact-card">
+                        <p className="section-subtitle">
+                            制作のご依頼・ご相談は <span className="highlight-text">完全無料</span> です。
                         </p>
 
-                        <a href="mailto:h.wakiyama@gmail.com" className="flex items-center gap-3 text-3xl font-bold text-slate-800 hover:text-blue-600 transition-all duration-300 hover:-translate-y-1" style={{ textDecoration: 'none' }}>
-                            <Mail size={36} />
+                        <a href="mailto:h.wakiyama@gmail.com" className="email-link-wrapper">
+                            <Mail size={24} />
                             h.wakiyama@gmail.com
                         </a>
 
-                        <div className="flex items-center gap-4 my-8 text-slate-400 font-medium select-none">
-                            <span className="h-px w-12 bg-slate-300"></span> OR <span className="h-px w-12 bg-slate-300"></span>
+                        <div className="contact-or-separator">
+                            <span className="line"></span> OR <span className="line"></span>
                         </div>
 
-                        <Link to="/contact" className="btn-contact-custom px-16 w-full md:w-auto md:min-w-[300px] mb-4 transition-all duration-300 hover:bg-blue-700 hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
+                        <Link to="/contact" className="btn-contact-custom">
                             お問い合わせフォームへ
                             <Send size={18} className="btn-icon" />
                         </Link>

@@ -1,121 +1,259 @@
+/* Service Page Styles - Strictly Mirrored from Works Page */
+
+.service-page {
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 100px;
+    /* Ensure content starts below fixed header */
+    min-height: 100vh;
+}
+
+/* Scroll Fade-in Animation (Copied from Works.css) */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header Structure (Mirrored from .works-header) */
 .service-header {
     text-align: center;
-    padding-top: 120px !important;
+    padding-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 120px;
+    /* Increased from 60px for better clearance */
+    padding-top: 0 !important;
+    /* Managed by page container */
 }
 
+/* Background Typography (Mirrored from .works-header::before) */
+/* Background Typography REMOVED (Handled by physical DOM in JSX) */
+/* .service-header::before deleted to prevent duplication */
+
+.service-header h1 {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #0f172a;
+    font-weight: 800;
+    position: relative;
+}
+
+.service-header p {
+    color: #64748b;
+    margin-bottom: 0;
+    position: relative;
+    font-weight: 500;
+}
+
+/* Global Section Override for Airy Layout */
+.service-page section {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Grid Layout (Mirrored from .works-grid-container) */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 120px auto 0;
+    /* Forced Top Margin for Spacing */
+    padding-bottom: 120px;
+    align-items: stretch;
 }
 
+@media (max-width: 900px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .service-header h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* Card Styles (Mirrored from .work-card-item logic) */
 .service-card {
     background: #fff;
-    border: 1px solid var(--color-border);
-    padding: 40px;
+    border: 1px solid transparent;
+    padding: 30px;
     border-radius: 16px;
-    /* rounded-2xl */
-    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .service-card:hover {
-    transform: scale(1.02);
-    /* Premium scale effect */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: var(--color-accent);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
 .service-img-wrapper img {
-    transition: transform 0.7s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .service-card:hover .service-img-wrapper img {
     transform: scale(1.05);
-    /* Smooth zoom */
 }
 
+/* Typography & Internal Elements */
 .service-title {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: var(--color-accent);
+    color: #111827;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.service-card:hover .service-title {
+    color: #2563eb;
 }
 
 .service-price {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-accent);
+    color: #2563eb;
     margin-bottom: 15px;
     font-family: var(--font-en);
 }
 
 .service-desc {
-    color: var(--color-text-light);
+    color: #64748b;
     margin-bottom: 25px;
     font-size: 0.95rem;
+    min-height: 4.5rem;
 }
 
 .service-features {
     text-align: left;
-    border-top: 1px solid var(--color-border);
     padding-top: 20px;
 }
 
 .service-features li {
     margin-bottom: 10px;
-    color: var(--color-text);
+    color: #475569;
     font-size: 0.9rem;
 }
 
-/* New Service Styles */
+/* Section Spacing (Works style) */
+.benefit-section,
+.flow-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 120px;
+}
+
+/* Benefits Grid - FIXED */
 .benefit-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    /* Force 3 columns */
+    gap: 24px;
     text-align: center;
+    align-items: stretch;
+}
+
+@media (max-width: 768px) {
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .benefit-card {
     background: #fff;
-    padding: 30px;
-    padding: 30px;
+    padding: 40px 30px;
+    /* More padding */
     border-radius: 16px;
-    /* rounded-2xl */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center alignment */
+    justify-content: flex-start;
 }
 
 .benefit-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .benefit-icon {
-    width: 60px;
-    height: 60px;
-    background: #f0f0f5;
+    width: 80px;
+    /* Larger icon area */
+    height: 80px;
+    background: #eff6ff;
+    /* Light blue bg */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px;
+    color: #2563eb;
 }
 
 .benefit-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #0f172a;
 }
 
 .benefit-card p {
-    color: var(--color-text-light);
-    line-height: 1.6;
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
+/* CTA Button (Matching Header Style) */
+.btn-service-cta {
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+.btn-service-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(37, 99, 235, 0.3);
+    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+/* Flow Section Updates */
 .flow-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 30px;
     position: relative;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -126,50 +264,44 @@
 }
 
 .step-num {
-    font-size: 3rem;
-    font-weight: 800;
-    color: rgba(26, 26, 46, 0.1);
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(37, 99, 235, 0.1);
     position: absolute;
-    top: 0;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 0;
+    font-family: var(--font-en);
 }
 
 .flow-step h3 {
-    margin-top: 40px;
-    /* Make space for big number */
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin-top: 50px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
     position: relative;
     z-index: 1;
-}
-
-.flow-step p {
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-}
-
-.flow-line {
-    display: none;
-    /* Simplify for responsive first, maybe add arrow later if time permits */
+    color: #0f172a;
+    font-weight: 700;
 }
 
 @media (max-width: 768px) {
     .flow-container {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .step-num {
-        font-size: 2.5rem;
-        top: 10px;
+        font-size: 3rem;
+        top: 0;
         left: 20px;
         transform: none;
     }
 
     .flow-step {
         text-align: left;
-        padding-left: 80px;
+        padding-left: 90px;
+        padding-top: 10px;
     }
 
     .flow-step h3 {

@@ -525,27 +525,26 @@ html {
 }
 
 .btn-contact-custom {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    border-radius: 9999px !important;
+    padding: 1rem 2rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.3s ease !important;
+    letter-spacing: 0.05em !important;
+    text-decoration: none !important;
     gap: 10px;
-    background-color: #2563eb;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
 }
 
 .btn-contact-custom:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+    background-color: #1d4ed8 !important;
+    transform: translateY(-4px) scale(1.05) !important;
+    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.35) !important;
 }
-
-
 
 .btn-icon {
     transition: transform 0.2s;
@@ -555,12 +554,258 @@ html {
     transform: translate(3px, -3px);
 }
 
+.email-link {
+    font-size: 1.2rem;
+}
+
+
+/* =========================================
+   CONTACT SECTION - STRICT REFACTOR (V2)
+   ========================================= */
+
+/* 1. Container: Forced Centering & Spacing */
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 896px;
+    /* max-w-4xl equivalent */
+    margin: 0 auto;
+    gap: 24px;
+    /* Uniform spacing */
+}
+
+/* 2. Email Link & Icon */
+.email-link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #1e293b;
+    /* slate-800 */
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+/* Force text size responsive if needed, but keeping it readable */
+.email-link-wrapper {
+    font-size: 1.5rem;
+    /* ~24px for text */
+}
+
+/* Force Icon Size */
+.email-link-wrapper svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.email-link-wrapper:hover {
+    color: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* 3. Button: No Wrap & Padding */
+.btn-contact-custom {
+    white-space: nowrap !important;
+    padding: 0 32px !important;
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-contact-custom:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-icon {
+    margin-left: 8px;
+}
+
+/* 4. Subtitle & Highlight Text Styling */
+.section-subtitle {
+    margin-bottom: 2rem;
+    color: #64748b;
+    /* slate-500 equivalent */
+}
+
+.highlight-text {
+    color: #0f172a;
+    /* slate-900 */
+    background-color: #fde047;
+    /* yellow-300 */
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+    /* text-2xl */
+    display: inline-block;
+    /* transform: rotate(-1deg); REMOVED ROTATION */
+    margin: 0 0.25rem;
+}
+
+/* Button Wrapper for Mobile Spacing */
+.section-cta-wrapper {
+    width: 100%;
+}
+
 @media (max-width: 768px) {
-    .highlight-marker {
-        font-size: 1.5rem;
+
+    /* Apply strict constraints to both the CTA wrapper buttons and the Contact button */
+    .section-cta-wrapper a,
+    .btn-contact-custom {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        max-width: 280px !important;
+        /* Strict constraint */
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
     }
 
-    .email-link {
-        font-size: 1.2rem;
+    /* Ensure parent wrappers allow centering */
+    .section-cta-wrapper,
+    .contact-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Crucial for flex children centering */
+        justify-content: center;
+    }
+
+    .section-cta-wrapper {
+        padding-left: 24px;
+        padding-right: 24px;
+        width: 100%;
+        /* Ensure wrapper takes full width so margin auto inside works */
+    }
+}
+
+.contact-or-separator {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #94a3b8;
+    font-weight: 500;
+    width: 100%;
+    justify-content: center;
+}
+
+.contact-or-separator .line {
+    height: 1px;
+    width: 48px;
+    background-color: #cbd5e1;
+}
+
+/* -----------------------------------------
+   MEDIA QUERY: MOBILE (<= 768px)
+   ----------------------------------------- */
+@media (max-width: 768px) {
+    .contact-card {
+        background-color: white;
+        padding: 40px 20px;
+        border-radius: 16px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        border: 1px solid #f1f5f9;
+        gap: 32px;
+        /* Larger gap on mobile if needed */
+    }
+
+    .email-link-wrapper {
+        font-size: 1.25rem;
+        /* Smaller on mobile */
+    }
+}
+
+/* -----------------------------------------
+   MEDIA QUERY: PC (>= 769px)
+   ----------------------------------------- */
+@media (min-width: 769px) {
+    .contact-card {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        /* Gap 24px is inherited from base, which matches requirement */
+    }
+
+    /* Section padding handled on parent */
+    #contact {
+        padding-bottom: 100px !important;
+    }
+}
+
+
+/* =========================================
+   WORKS BACKGROUND ANIMATION
+   ========================================= */
+.works-bg-shapes {
+    overflow: hidden;
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.shape-1 {
+    width: 500px;
+    height: 500px;
+    background-color: #94a3b8;
+    /* slate-400 */
+    top: -150px;
+    left: -100px;
+    animation: floatAnimation 20s infinite ease-in-out;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background-color: #cbd5e1;
+    /* slate-300 */
+    bottom: -100px;
+    right: -100px;
+    animation: floatAnimation 25s infinite ease-in-out reverse;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, 50px) rotate(10deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
     }
 }

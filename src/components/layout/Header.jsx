@@ -84,7 +84,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="desktop-nav">
+        <nav className="desktop-nav hidden md:flex">
           <ul className="nav-links">
             <li><Link to="/" className={getLinkClass('home')}>HOME</Link></li>
             <li><Link to="/works" className={getLinkClass('works')}>WORKS</Link></li>
@@ -98,12 +98,12 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button className="mobile-menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+        <button className="mobile-menu-toggle md:hidden" onClick={toggleMenu} aria-label="Toggle menu">
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
         {/* Mobile Nav Overlay */}
-        <div className={`mobile-nav-overlay ${isMenuOpen ? 'open' : ''}`}>
+        <div className={`mobile-nav-overlay md:hidden ${isMenuOpen ? 'open' : ''}`}>
           <ul className="mobile-nav-links">
             <li><Link to="/" className={getLinkClass('home')} onClick={() => setIsMenuOpen(false)} style={{ color: activeSection === 'home' ? '#2563eb' : '#0f172a' }}>HOME</Link></li>
             <li><Link to="/works" className={getLinkClass('works')} onClick={() => setIsMenuOpen(false)} style={{ color: activeSection === 'works' ? '#2563eb' : '#0f172a' }}>WORKS</Link></li>

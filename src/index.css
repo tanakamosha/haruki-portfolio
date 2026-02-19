@@ -75,12 +75,10 @@ section {
 
 section:nth-of-type(odd) {
   background-color: var(--bg-primary);
-  border-bottom: 1px solid #e2e8f0;
 }
 
 section:nth-of-type(even) {
   background-color: var(--bg-secondary);
-  border-bottom: 1px solid #e2e8f0;
 }
 
 /* Button Styling (Refined) */
