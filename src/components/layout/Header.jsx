@@ -90,11 +90,11 @@ const Header = () => {
             <li><Link to="/works" className={getLinkClass('works')}>WORKS</Link></li>
             <li><Link to="/service" className={getLinkClass('service')}>SERVICE</Link></li>
             <li><Link to="/about" className={getLinkClass('about')}>ABOUT</Link></li>
-            <li><Link to="/contact" className={getLinkClass('contact')}>CONTACT</Link></li>
+            {/* CONTACT link hidden on desktop as CTA button takes precedence */}
           </ul>
-          <a href="https://coconala.com/" target="_blank" rel="noopener noreferrer" className="btn-header-cta">
-            無料相談 (ココナラ)
-          </a>
+          <Link to="/contact" className="btn-header-cta">
+            無料相談・お見積り
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}

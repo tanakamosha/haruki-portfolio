@@ -23,6 +23,10 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/law" element={<Law />} />
       </Routes>
+      {/* <div style={{ padding: '100px', textAlign: 'center' }}>
+        <h2>Partial Restoration Mode</h2>
+        <p>Home component is causing the crash. Investigating...</p>
+      </div> */}
     </Layout>
   );
 }

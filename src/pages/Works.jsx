@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Section from '../components/ui/Section';
 import { X } from 'lucide-react';
+import CallToAction from '../components/ui/CallToAction';
 import './Works.css';
 
 // Mock Data
@@ -257,57 +258,29 @@ const Works = () => {
                         <div className="modal-image">
                             <img src={selectedWork.image} alt={selectedWork.title} />
                         </div>
-                        <div className="modal-body">
-                            <h2>{selectedWork.title}</h2>
-
-                            {/* New Details Grid */}
-                            <div className="modal-details-grid">
-                                <div className="detail-item">
-                                    <span className="detail-label">カテゴリ</span>
-                                    <span className="detail-value">{selectedWork.category}</span>
-                                </div>
-                                <div className="detail-item">
-                                    <span className="detail-label">制作期間</span>
-                                    <span className="detail-value">{selectedWork.period}</span>
-                                </div>
-                                <div className="detail-item">
-                                    <span className="detail-label">使用ツール</span>
-                                    <span className="detail-value">{selectedWork.tools}</span>
-                                </div>
-                                <div className="detail-item">
-                                    <span className="detail-label">担当範囲</span>
-                                    <span className="detail-value">{selectedWork.scope}</span>
-                                </div>
-                                <div className="detail-item">
-                                    <span className="detail-label">参考価格</span>
-                                    <span className="detail-value">{selectedWork.price}</span>
-                                </div>
-                                {selectedWork.url && (
-                                    <div className="detail-item">
-                                        <span className="detail-label">リンク</span>
-                                        <a href={selectedWork.url} target="_blank" rel="noopener noreferrer" className="site-link-btn">
-                                            サイトを見る
-                                        </a>
-                                    </div>
-                                )}
-                            </div>
-
-                            <div className="modal-section">
-                                <h4>課題・背景</h4>
-                                <p>{selectedWork.issue}</p>
-                            </div>
-                            <div className="modal-section">
-                                <h4>解決策・デザインのポイント</h4>
-                                <p>{selectedWork.solution}</p>
-                            </div>
-                            <div className="modal-section">
-                                <h4>結果・成果</h4>
-                                <p>{selectedWork.result}</p>
-                            </div>
+                        <div className="modal-body" style={{ textAlign: 'center', padding: '40px' }}>
+                            <span
+                                className="work-category-badge"
+                                style={{
+                                    position: 'relative',
+                                    top: 'auto',
+                                    left: 'auto',
+                                    display: 'inline-block',
+                                    marginBottom: '10px'
+                                }}
+                            >
+                                {selectedWork.category}
+                            </span>
+                            <h2 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>{selectedWork.title}</h2>
+                            <p style={{ color: '#475569', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
+                                {selectedWork.desc}
+                            </p>
                         </div>
                     </div>
                 </div>
             )}
+
+            <CallToAction />
         </div>
     );
 };

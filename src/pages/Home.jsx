@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Layers, TrendingUp, Smartphone, PenTool, MonitorPlay, Send, Mail } from 'lucide-react';
+import { ArrowRight, Zap, Layers, Smartphone, PenTool, MonitorPlay } from 'lucide-react';
+
+import CallToAction from '../components/ui/CallToAction';
 import './Home.css';
+
 
 const Home = () => {
     // 共通のインナーコンテナスタイル
@@ -28,7 +31,7 @@ const Home = () => {
             });
         }, observerOptions);
 
-        const animatedElements = document.querySelectorAll('.fade-up-element');
+        const animatedElements = document.querySelectorAll('.fade-up-element, .fade-in-section');
         animatedElements.forEach(el => observer.observe(el));
 
         return () => {
@@ -191,7 +194,8 @@ const Home = () => {
                             padding: '12px 32px',
                             borderRadius: '6px',
                             fontWeight: '600',
-                            textDecoration: 'none'
+                            textDecoration: 'none',
+                            backgroundColor: 'white'
                         }}>
                             View All Works
                         </Link>
@@ -284,7 +288,8 @@ const Home = () => {
                             padding: '12px 32px',
                             borderRadius: '6px',
                             fontWeight: '600',
-                            textDecoration: 'none'
+                            textDecoration: 'none',
+                            backgroundColor: 'white'
                         }}>
                             View All Services
                         </Link>
@@ -389,36 +394,10 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 5. CONTACT (Light Gray Background) */}
-            <section id="contact" className="scroll-mt-20" style={{ padding: '70px 0 100px 0', backgroundColor: '#f8f9fa' }}>
-                <div style={{ ...baseContainerStyle, textAlign: 'center' }}>
-                    <div style={{ marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">CONTACT</h2>
-                        <span className="text-slate-600">お問い合わせ</span>
-                    </div>
 
-                    {/* Contact Content Wrapper - STRICT REFACTOR */}
-                    <div className="contact-card">
-                        <p className="section-subtitle">
-                            制作のご依頼・ご相談は <span className="highlight-text">完全無料</span> です。
-                        </p>
+            {/* Contact CTA */}
+            <CallToAction />
 
-                        <a href="mailto:h.wakiyama@gmail.com" className="email-link-wrapper">
-                            <Mail size={24} />
-                            h.wakiyama@gmail.com
-                        </a>
-
-                        <div className="contact-or-separator">
-                            <span className="line"></span> OR <span className="line"></span>
-                        </div>
-
-                        <Link to="/contact" className="btn-contact-custom">
-                            お問い合わせフォームへ
-                            <Send size={18} className="btn-icon" />
-                        </Link>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 };

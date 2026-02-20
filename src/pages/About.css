@@ -1,117 +1,234 @@
-/* Update About Styles */
-.about-header {
-    text-align: center;
-    padding-top: 120px !important;
+/* About Page Styles */
+
+.about-page {
+    position: relative;
+    padding-bottom: 120px;
+    padding-top: 100px;
+    /* Added to match Service page */
+    min-height: 100vh;
 }
 
-.about-content {
+/* Header (Shared style mostly, but ensuring consistency) */
+.about-header {
+    text-align: center;
+    padding-top: 0 !important;
+    /* Changed from 100px to 0 to match Service page */
+    padding-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 120px;
+    /* Large space below header */
+}
+
+.about-header h1 {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.about-header p {
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Profile Section */
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.profile-image-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-image-placeholder {
+    width: 300px;
+    height: 300px;
+    background-color: #f3f4f6;
+    border-radius: 20px;
+    /* Soft rounded corners */
+}
+
+.profile-content h2 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.profile-title {
+    color: #2563eb;
+    /* Brand Blue */
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    display: block;
+}
+
+.profile-text {
+    line-height: 2;
+    color: #475569;
+    font-size: 1rem;
+}
+
+/* Skills Section */
+.skills-section {
+    margin-top: 160px;
+    /* Big airy space */
+}
+
+.section-title-wrapper {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title-wrapper h3 {
+    font-size: 2rem;
+    color: #0f172a;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.about-profile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
+.skill-card {
+    /* No border, just layout */
+    padding: 20px;
+    text-align: left;
 }
 
-.profile-img-placeholder {
-    width: 100%;
-    aspect-ratio: 1/1;
-    background: #e0e0e0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.skill-category {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #f1f5f9;
+    /* Very subtle text color for category "background" feel */
+    display: block;
+    margin-bottom: -20px;
+    position: relative;
+    z-index: 0;
+    line-height: 1;
 }
 
-.profile-text h2 {
-    font-size: 2.5rem;
+/* Or maybe a more visible header style? Let's try simple elegant headers */
+.skill-category {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    display: block;
     margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
 }
 
-.profile-text p {
-    line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: 20px;
+/* Line decoration without border-bottom on the whole card */
+.skill-category::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background-color: #2563eb;
+    border-radius: 2px;
 }
 
-.skills-section {
-    margin-top: 30px;
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.skills-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.skill-name {
-    width: 150px;
+.skill-list li {
+    color: #475569;
+    margin-bottom: 12px;
     font-weight: 500;
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
 }
 
-.skill-bar {
-    flex: 1;
-    height: 8px;
-    background: #f0f0f0;
-    border-radius: 4px;
-    overflow: hidden;
+.skill-list li::before {
+    content: '•';
+    color: #2563eb;
+    margin-right: 10px;
+    font-size: 1.2rem;
 }
 
-.skill-progress {
-    height: 100%;
-    background: var(--color-accent);
-    border-radius: 4px;
-}
-
-.youtube-placeholder {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background-color: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-    .about-profile {
+    .about-header h1 {
+        font-size: 3.5rem;
+    }
+
+    .profile-container {
         grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
     }
 
-    .profile-image {
-        width: 250px;
-        margin: 0 auto 30px;
+    .profile-image-wrapper {
+        justify-content: center;
     }
 
-    .skill-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+    .profile-content h2 {
+        font-size: 2rem;
+        margin-top: 20px;
     }
 
-    .skill-name {
-        width: auto;
+    .profile-title {
+        margin-bottom: 30px;
     }
 
-    .skill-bar {
-        width: 100%;
+    .profile-text {
+        text-align: left;
     }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .skill-card {
+        text-align: center;
+    }
+
+    .skill-category::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .skill-list li {
+        justify-content: center;
+    }
+}
+
+/* Animation Classes (Shared) */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }

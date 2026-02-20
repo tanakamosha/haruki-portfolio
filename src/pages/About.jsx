@@ -1,81 +1,131 @@
 import React from 'react';
 import Section from '../components/ui/Section';
+import CallToAction from '../components/ui/CallToAction';
 import './About.css';
 
+const SkillBar = ({ name, percentage }) => (
+    <div className="skill-bar-container mb-4 last:mb-0">
+        <div className="flex justify-between items-end mb-1">
+            <span className="text-sm font-bold text-slate-700">{name}</span>
+            <span className="text-xs text-slate-400 font-mono">{percentage}%</span>
+        </div>
+        <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+            <div
+                className="bg-blue-600 h-full rounded-full transition-all duration-1000 ease-out"
+                style={{ width: `${percentage}%` }}
+            ></div>
+        </div>
+    </div>
+);
+
 const About = () => {
+    // Scroll Fade-in Logic
+    React.useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('.fade-in-section');
+        elements.forEach(el => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div className="about-page page-transition">
-            <Section className="about-header">
-                <h1>ABOUT ME</h1>
-                <p>Creator / Developer</p>
+            {/* Header Section */}
+            <Section className="about-header fade-in-section">
+                {/* Background Watermark */}
+                <div style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    fontSize: "15vw",
+                    fontWeight: "900",
+                    color: "#f3f4f6",
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    whiteSpace: "nowrap",
+                    userSelect: "none",
+                    lineHeight: 1
+                }}>
+                    ABOUT
+                </div>
+
+                <h1 style={{ position: 'relative', zIndex: 10 }}>ABOUT</h1>
+                <p style={{ position: 'relative', zIndex: 10 }}>ビジネスの課題を、デザインの力で解決する。</p>
             </Section>
 
-            <Section className="about-content">
-                <div className="about-profile">
-                    <div className="profile-image">
-                        {/* Placeholder for profile image */}
-                        <div className="profile-img-placeholder" style={{ overflow: 'hidden' }}>
-                            <img
-                                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2600&auto=format&fit=crop"
-                                alt="Workspace"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            />
+            {/* Profile Section */}
+            <Section className="profile-section fade-in-section">
+                <div className="profile-container">
+                    <div className="profile-image-wrapper">
+                        {/* Placeholder Image */}
+                        <div className="profile-image-placeholder"></div>
+                    </div>
+                    <div className="profile-content">
+                        <h2>Haruki Wakiyama</h2>
+                        <p className="profile-title">Web & Graphic Designer / Video Creator</p>
+                        <p className="profile-text">
+                            Webサイト制作から、紙媒体のグラフィックデザイン、プロモーション動画の編集まで、媒体の垣根を越えたクリエイティブを提供しています。<br /><br />
+                            『誰に、何を、どう伝えるか』という根本的な目的を大切にし、ただ綺麗なだけでなく、クライアントのビジネスを加速させるためのデザインを設計します。<br /><br />
+                            Illustrator等を用いた高品質なグラフィック制作と、最新のWeb技術を掛け合わせ、一貫した世界観でのブランディングをサポートいたします。
+                        </p>
+                    </div>
+                </div>
+            </Section>
+
+            {/* Skills Section */}
+            <Section className="skills-section fade-in-section">
+                <div className="section-title-wrapper">
+                    <h3>SKILLS</h3>
+                    <p className="section-subtitle">提供可能なスキル</p>
+                </div>
+
+                <div className="skills-grid">
+                    <div className="skill-card">
+                        <span className="skill-category">Web</span>
+                        <div className="skill-list-visual">
+                            <SkillBar name="UI/UX Design" percentage={90} />
+                            <SkillBar name="HTML/CSS/JavaScript" percentage={85} />
+                            <SkillBar name="Responsive Design" percentage={95} />
+                            <SkillBar name="React / Vite" percentage={75} />
                         </div>
                     </div>
-                    <div className="profile-text">
-                        <h2>Hi, I'm [Your Name].</h2>
-                        <p>
-                            「技術とデザインの融合」をテーマに活動するマルチクリエイター。
-                            Webエンジニアとしての確かな技術力と、グラフィック・映像制作で培った表現力を掛け合わせ、
-                            クライアントの想いを形にすることに情熱を注いでいます。
-                        </p>
-                        <p>
-                            「ただ作るだけ」ではなく、クライアントのビジネス課題を解決するための「戦略的なクリエイティブ」を提案します。
-                            最新のツールやトレンドも積極的に取り入れ、常に最適なソリューションを追求しています。
-                        </p>
-
-                        <div className="skills-section">
-                            <h3>Skills & Tools</h3>
-                            <div className="skills-list">
-                                <div className="skill-item">
-                                    <span className="skill-name">React / Next.js</span>
-                                    <div className="skill-bar"><div className="skill-progress" style={{ width: '90%' }}></div></div>
-                                </div>
-                                <div className="skill-item">
-                                    <span className="skill-name">Adobe Illustrator</span>
-                                    <div className="skill-bar"><div className="skill-progress" style={{ width: '85%' }}></div></div>
-                                </div>
-                                <div className="skill-item">
-                                    <span className="skill-name">Premiere Pro</span>
-                                    <div className="skill-bar"><div className="skill-progress" style={{ width: '80%' }}></div></div>
-                                </div>
-                                <div className="skill-item">
-                                    <span className="skill-name">Generative Tools</span>
-                                    <div className="skill-bar"><div className="skill-progress" style={{ width: '85%' }}></div></div>
-                                </div>
-                            </div>
+                    <div className="skill-card">
+                        <span className="skill-category">Graphic</span>
+                        <div className="skill-list-visual">
+                            <SkillBar name="Flyer / Pamphlet" percentage={95} />
+                            <SkillBar name="Business Card" percentage={90} />
+                            <SkillBar name="Logo Design" percentage={80} />
+                            <SkillBar name="Color Theory" percentage={85} />
+                        </div>
+                    </div>
+                    <div className="skill-card">
+                        <span className="skill-category">Video</span>
+                        <div className="skill-list-visual">
+                            <SkillBar name="YouTube Editing" percentage={90} />
+                            <SkillBar name="Shorts / Reels" percentage={85} />
+                            <SkillBar name="Color Grading" percentage={70} />
+                            <SkillBar name="Motion Graphics" percentage={60} />
                         </div>
                     </div>
                 </div>
             </Section>
 
-            <Section>
-                <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>YouTube Channel</h2>
-                <div className="youtube-placeholder">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder"
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                    ></iframe>
-                </div>
-                <p style={{ textAlign: 'center', marginTop: '20px', color: 'var(--color-text-light)' }}>
-                    制作過程やクリエイティブな情報を発信中。
-                </p>
-            </Section>
+            <CallToAction />
         </div>
     );
 };

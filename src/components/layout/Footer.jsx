@@ -16,22 +16,24 @@ const Footer = () => {
                     </div>
 
                     {/* Center: Navigation */}
-                    <div className="flex flex-col gap-4">
-                        <h3 className="text-sm font-bold text-gray-500">MENU</h3>
-                        <Link to="/" className="text-sm hover:text-blue-400 transition-colors">HOME</Link>
-                        <Link to="/works" className="text-sm hover:text-blue-400 transition-colors">WORKS</Link>
-                        <Link to="/service" className="text-sm hover:text-blue-400 transition-colors">SERVICE</Link>
-                        <Link to="/about" className="text-sm hover:text-blue-400 transition-colors">ABOUT</Link>
-                        <Link to="/contact" className="text-sm hover:text-blue-400 transition-colors">CONTACT</Link>
+                    <div className="flex flex-col gap-4 items-start">
+                        <h3 className="text-sm font-bold" style={{ color: '#ffffff', opacity: 1, position: 'relative', zIndex: 50 }}>MENU</h3>
+                        <ul className="flex flex-col gap-4 items-start list-none p-0 m-0" style={{ listStyle: 'none' }}>
+                            <li><Link to="/" className="text-sm hover:text-blue-400 transition-colors inline-block">HOME</Link></li>
+                            <li><Link to="/works" className="text-sm hover:text-blue-400 transition-colors inline-block">WORKS</Link></li>
+                            <li><Link to="/service" className="text-sm hover:text-blue-400 transition-colors inline-block">SERVICE</Link></li>
+                            <li><Link to="/about" className="text-sm hover:text-blue-400 transition-colors inline-block">ABOUT</Link></li>
+                            <li><Link to="/contact" className="text-sm hover:text-blue-400 transition-colors inline-block">CONTACT</Link></li>
+                        </ul>
                     </div>
 
                     {/* Right: Legal & Social */}
-                    <div className="flex flex-col gap-4">
-                        <h3 className="text-sm font-bold text-gray-500">LEGAL & SOCIAL</h3>
-                        <div className="flex flex-col gap-2 mb-2">
-                            <Link to="/privacy" className="text-sm hover:text-blue-400 transition-colors">プライバシーポリシー</Link>
-                            <Link to="/law" className="text-sm hover:text-blue-400 transition-colors">特定商取引法に基づく表記</Link>
-                        </div>
+                    <div className="flex flex-col gap-4 items-start">
+                        <h3 className="text-sm font-bold" style={{ color: '#ffffff', opacity: 1, position: 'relative', zIndex: 50 }}>LEGAL & SOCIAL</h3>
+                        <ul className="flex flex-col gap-2 mb-2 items-start list-none p-0 m-0" style={{ listStyle: 'none' }}>
+                            <li><Link to="/privacy" className="text-sm hover:text-blue-400 transition-colors inline-block">プライバシーポリシー</Link></li>
+                            <li><Link to="/law" className="text-sm hover:text-blue-400 transition-colors inline-block">特定商取引法に基づく表記</Link></li>
+                        </ul>
                         <div className="flex gap-4">
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-white hover:text-blue-400 transition-colors">
                                 <Twitter size={20} />

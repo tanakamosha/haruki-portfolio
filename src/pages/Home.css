@@ -433,13 +433,15 @@ html {
 }
 
 /* Fade Up Animation */
-.fade-up-element {
+.fade-up-element,
+.fade-in-section {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.fade-up-element.is-visible {
+.fade-up-element.is-visible,
+.fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
