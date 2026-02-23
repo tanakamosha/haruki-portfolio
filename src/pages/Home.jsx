@@ -148,11 +148,11 @@ const Home = () => {
                         <span className="text-slate-600">制作実績</span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 md:px-0">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 md:px-0">
                         {[
                             { title: 'Namaste Shavasana', cat: 'Webデザイン / コーディング', tag: 'Web', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop' },
                             { title: 'Tech Innovations Inc.', cat: '会社案内パンフレット', tag: 'Print', img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop' },
-                            { title: 'Future Coffee', cat: 'プロモーション動画編集', tag: 'Movie', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop' }
+                            { title: 'Coming Soon', cat: '現在準備中', tag: 'Movie', img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop' }
                         ].map((item, index) => (
                             <div key={index} className="w-full h-full">
                                 <Link to="/works" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
@@ -228,8 +228,8 @@ const Home = () => {
                             },
                             {
                                 title: 'Movie Editing',
-                                desc: 'YouTube動画編集',
-                                text: 'カット編集、テロップ入れ、BGM・SE挿入など、YouTube向けの動画編集を高品質・短納期で提供。',
+                                desc: '動画編集・映像制作',
+                                text: 'YouTube Shortsから本編動画まで対応。視聴維持率を高めるテンポの良い編集で、SNSに最適化した動画を提供します。',
                                 img: '/douga.jpg',
                                 alt: '動画編集・映像制作'
                             }

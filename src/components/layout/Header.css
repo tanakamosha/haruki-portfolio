@@ -111,26 +111,27 @@
     color: #2563eb;
 }
 
-/* Header Action Button */
+/* Header Action Button (Expert Minimalist) */
 .btn-header-cta {
-    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
-    /* Subtle gradient */
-    color: #fff;
+    background: transparent;
+    color: #0f172a;
     padding: 10px 24px;
-    border-radius: 6px;
-    /* Rounded 6px */
+    border-radius: 4px;
+    /* Sharper */
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid #0f172a;
+    box-shadow: none;
 }
 
 .btn-header-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.15);
+    background: #0f172a;
+    /* Solid dark fill */
+    color: #ffffff;
 }
 
 /* Mobile Menu Toggle */
@@ -142,22 +143,26 @@
     color: #0f172a;
 }
 
-/* Mobile Nav Overlay */
+/* Mobile Nav Overlay (Premium Dark Monochrome) */
 .mobile-nav-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(15, 23, 42, 0.98);
+    /* Deep Slate 900 */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1000;
+    /* Just below toggle */
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-nav-overlay.open {
@@ -165,18 +170,32 @@
     visibility: visible;
 }
 
+/* Internal Overlay Close Button Removed */
+
 /* Ensure toggle button is above overlay */
 .mobile-menu-toggle {
     z-index: 1001;
     position: relative;
-    color: #1e293b !important;
-    /* Force dark slate color */
 }
 
-/* Ensure icons inside inherit the color */
-.mobile-menu-toggle svg {
+/* Base dark slate color */
+.mobile-menu-toggle:not(.open) {
+    color: #1e293b !important;
+}
+
+.mobile-menu-toggle:not(.open) svg {
     color: #1e293b !important;
     stroke: #1e293b !important;
+}
+
+/* White color when overlay is active */
+.mobile-menu-toggle.open {
+    color: #ffffff !important;
+}
+
+.mobile-menu-toggle.open svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
 }
 
 .mobile-nav-links {
@@ -185,12 +204,34 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
+    /* Increased breathing room */
 }
 
+/* Premium Monochrome Links */
 .mobile-nav-links a {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #0f172a;
+    font-size: 1.75rem;
+    /* Slightly larger */
+    font-weight: 300;
+    /* Sophisticated thin weight */
+    color: #94a3b8;
+    /* Slate-400 inactive */
     text-decoration: none;
+    letter-spacing: 0.1em;
+    font-family: 'Oswald', sans-serif;
+    /* Consistent heading font */
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.mobile-nav-links a:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+    /* Slight hover micro-interaction */
+}
+
+/* Active State override */
+.mobile-nav-links a.active {
+    color: #ffffff !important;
+    font-weight: 500;
 }

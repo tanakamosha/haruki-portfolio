@@ -32,14 +32,14 @@ const services = [
     },
     {
         title: '動画編集・映像制作',
-        price: '¥10,000〜',
+        price: '¥5,000〜',
         features: [
-            'YouTube動画編集（カット・テロップ）',
-            'ショート動画・広告動画の作成',
-            'BGM・効果音・色調補正（カラーグレーディング）',
-            'ロゴアニメーション・VFX対応'
+            'YouTube Shorts / TikTok等 (1分未満): ¥5,000〜',
+            'YouTube 本編動画: ¥10,000〜',
+            'その他SNS用PR動画: ¥5,000〜',
+            'カット編集・テロップ・BGM装飾込み'
         ],
-        desc: '視聴者の視線を釘付けにする、洗練された映像演出とストーリーテリング。',
+        desc: '視聴維持率を高めるテンポの良い編集。ショートから長尺までプラットフォームに最適化します。',
         image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800'
     }
 ];
@@ -80,7 +80,7 @@ const Service = () => {
     return (
         <div className="service-page page-transition">
             <Section className="service-header fade-in-section">
-                {/* Background Watermark (Physical DOM) */}
+                {/* Background Watermark (Physical DOM to match About page) */}
                 <div style={{
                     position: "absolute",
                     top: "50%",
@@ -88,7 +88,7 @@ const Service = () => {
                     transform: "translate(-50%, -50%)",
                     fontSize: "15vw",
                     fontWeight: "900",
-                    color: "#f3f4f6", /* UPDATED: Very light gray */
+                    color: "#f3f4f6",
                     zIndex: 0,
                     pointerEvents: "none",
                     whiteSpace: "nowrap",
@@ -126,13 +126,22 @@ const Service = () => {
                                 <ul className="service-features">
                                     {service.features.map((feature, idx) => (
                                         <li key={idx}>
-                                            <CheckCircle size={16} color="var(--color-accent)" style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle', flexShrink: 0 }} />
+                                            <CheckCircle size={16} color="var(--color-accent)" style={{ display: 'inline', verticalAlign: 'middle', flexShrink: 0 }} />
                                             <span>{feature}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
-                            <Link to="/contact" className="btn-service-cta" style={{ marginTop: 'auto', width: '100%', display: 'inline-block', textAlign: 'center' }}>
+                            <Link to="/contact" className="hero-cta-button" style={{
+                                marginTop: 'auto',
+                                width: '100%',
+                                display: 'inline-flex',
+                                justifyContent: 'center',
+                                textAlign: 'center',
+                                borderRadius: '9999px',
+                                padding: '12px 24px',
+                                fontSize: '1rem'
+                            }}>
                                 このプランについて相談する
                             </Link>
                         </div>

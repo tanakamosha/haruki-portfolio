@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Section from '../components/ui/Section';
-import { X } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
 import CallToAction from '../components/ui/CallToAction';
 import './Works.css';
 
@@ -24,17 +24,17 @@ const worksData = [
 
     {
         id: 3,
-        title: 'Future Coffee',
+        title: 'Coming Soon',
         category: 'Movie',
-        scope: '動画編集 / VFX',
-        image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop',
-        desc: 'Futuristic coffee brand commercial.',
-        issue: '撮影場所の確保に予算の制約があった。',
-        solution: '生成AIを使用して近未来的な背景を作成し、スタジオ撮影した商品ショットと合成しました。',
-        result: 'SNSで公開後1週間で10万回再生を達成。',
-        period: '1ヶ月',
-        tools: 'Premiere Pro / After Effects / DaVinci Resolve',
-        price: '¥300,000〜'
+        scope: '実績準備中',
+        image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop',
+        desc: '現在、公開可能な動画ポートフォリオを準備中です。',
+        issue: '動画編集の実績サンプルは、ご相談いただいた際に個別にご案内可能です。',
+        solution: 'YouTube Shorts・TikTok等の1分未満のショート動画から、YouTube本編動画まで幅広く対応しております。詳細な料金や納期については「CONTACT」よりお問い合わせください。',
+        result: '視聴維持率を高めるテンポの良い編集で、SNSに最適化した動画を提供します。',
+        period: '要相談',
+        tools: 'Premiere Pro / After Effects',
+        price: '¥5,000〜'
     },
     {
         id: 4,
@@ -50,21 +50,6 @@ const worksData = [
         tools: 'Figma / Next.js / Supabase',
         price: '¥800,000〜',
         url: 'https://example.com'
-    },
-
-    {
-        id: 6,
-        title: 'Indie Band MV',
-        category: 'Movie',
-        scope: 'モーショングラフィックス',
-        image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=2670&auto=format&fit=crop',
-        desc: 'Psychedelic music video.',
-        issue: 'バンドが夢のような幻想的なビジュアルを求めていた。',
-        solution: 'AI動画生成ツールを使用し、ビートに合わせてシーンが変形（モーフィング）するサイケデリックな映像を制作しました。',
-        result: 'ファンからのエンゲージメント率が過去最高を記録。',
-        period: '3週間',
-        tools: 'After Effects / Blender',
-        price: '¥200,000〜'
     },
     {
         id: 7,
@@ -161,61 +146,36 @@ const Works = () => {
         <div className="works-page page-transition">
 
             <Section className="works-header fade-in-section">
+                {/* Background Watermark (Physical DOM to match Service/About) */}
+                <div style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    fontSize: "18vw",
+                    fontWeight: "900",
+                    color: "#f8f8f8",
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    whiteSpace: "nowrap",
+                    userSelect: "none",
+                    lineHeight: 1,
+                    letterSpacing: "0.1em"
+                }}>
+                    WORKS
+                </div>
+
                 <h1>WORKS</h1>
                 <p>Webから紙媒体、動画まで、これまでの制作実績をご紹介します。</p>
 
-                <div
-                    className="filter-container"
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        marginBottom: "40px",
-                        marginTop: "20px",
-                        gap: "15px",
-                        flexWrap: "wrap"
-                    }}
-                >
+                <div className="filter-container fade-in-section">
                     {['All', 'Web', 'Print', 'Movie'].map(category => {
                         const isActive = filter === category;
-                        const buttonStyle = {
-                            padding: "12px 30px",
-                            borderRadius: "50px",
-                            fontSize: "14px",
-                            fontWeight: "bold",
-                            margin: "0 10px",
-                            border: "none",
-                            cursor: "pointer",
-                            transition: "all 0.3s ease",
-                            backgroundColor: isActive ? "#2563eb" : "#64748b", // Active: Blue, Inactive: Slate Blue
-                            color: "#ffffff", // ALWAYS White
-                            boxShadow: isActive ? "0 4px 6px -1px rgba(37, 99, 235, 0.3)" : "none",
-                            transform: "translateY(0)"
-                        };
-
                         return (
                             <button
                                 key={category}
                                 className={`custom-filter-btn ${isActive ? 'active' : ''}`}
                                 onClick={() => setFilter(category)}
-                                style={buttonStyle}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = "translateY(-2px)";
-                                    if (!isActive) {
-                                        e.currentTarget.style.backgroundColor = "#2563eb"; // Hover: Brand Blue
-                                        e.currentTarget.style.boxShadow = "0 4px 12px rgba(37, 99, 235, 0.2)";
-                                    } else {
-                                        e.currentTarget.style.backgroundColor = "#1d4ed8"; // Active Hover: Darker Blue
-                                    }
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = "translateY(0)";
-                                    e.currentTarget.style.boxShadow = isActive ? "0 4px 6px -1px rgba(37, 99, 235, 0.3)" : "none";
-                                    if (!isActive) {
-                                        e.currentTarget.style.backgroundColor = "#64748b"; // Revert to Inactive
-                                    } else {
-                                        e.currentTarget.style.backgroundColor = "#2563eb"; // Revert to Active
-                                    }
-                                }}
                             >
                                 {category}
                             </button>
@@ -258,23 +218,75 @@ const Works = () => {
                         <div className="modal-image">
                             <img src={selectedWork.image} alt={selectedWork.title} />
                         </div>
-                        <div className="modal-body" style={{ textAlign: 'center', padding: '40px' }}>
-                            <span
-                                className="work-category-badge"
-                                style={{
-                                    position: 'relative',
-                                    top: 'auto',
-                                    left: 'auto',
-                                    display: 'inline-block',
-                                    marginBottom: '10px'
-                                }}
-                            >
-                                {selectedWork.category}
-                            </span>
-                            <h2 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>{selectedWork.title}</h2>
-                            <p style={{ color: '#475569', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-                                {selectedWork.desc}
-                            </p>
+                        <div className="modal-body" style={{ textAlign: 'left' }}>
+                            <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+                                <span
+                                    className="work-category-badge"
+                                    style={{
+                                        position: 'relative',
+                                        top: 'auto',
+                                        left: 'auto',
+                                        display: 'inline-block',
+                                        marginBottom: '10px'
+                                    }}
+                                >
+                                    {selectedWork.category}
+                                </span>
+                                <h2 style={{ fontSize: '1.8rem', marginBottom: '10px' }}>{selectedWork.title}</h2>
+                                <p style={{ color: '#64748b', fontSize: '1rem' }}>{selectedWork.desc}</p>
+                            </div>
+
+                            <div className="modal-details-grid">
+                                <div className="detail-item">
+                                    <span className="detail-label">Scope</span>
+                                    <span className="detail-value">{selectedWork.scope}</span>
+                                </div>
+                                {selectedWork.price && (
+                                    <div className="detail-item">
+                                        <span className="detail-label">Price</span>
+                                        <span className="detail-value">{selectedWork.price}</span>
+                                    </div>
+                                )}
+                                {selectedWork.period && (
+                                    <div className="detail-item">
+                                        <span className="detail-label">Period</span>
+                                        <span className="detail-value">{selectedWork.period}</span>
+                                    </div>
+                                )}
+                                {selectedWork.tools && (
+                                    <div className="detail-item">
+                                        <span className="detail-label">Tools</span>
+                                        <span className="detail-value">{selectedWork.tools}</span>
+                                    </div>
+                                )}
+                            </div>
+
+                            {selectedWork.issue && (
+                                <div className="modal-section">
+                                    <h4>課題 (Issue)</h4>
+                                    <p>{selectedWork.issue}</p>
+                                </div>
+                            )}
+                            {selectedWork.solution && (
+                                <div className="modal-section">
+                                    <h4>解決策 (Solution)</h4>
+                                    <p>{selectedWork.solution}</p>
+                                </div>
+                            )}
+                            {selectedWork.result && (
+                                <div className="modal-section">
+                                    <h4>結果 (Result)</h4>
+                                    <p>{selectedWork.result}</p>
+                                </div>
+                            )}
+
+                            {selectedWork.url && (
+                                <div style={{ textAlign: 'center', marginTop: '40px' }}>
+                                    <a href={selectedWork.url} target="_blank" rel="noopener noreferrer" className="site-link-btn" style={{ margin: '0 auto' }}>
+                                        View Live Site <ArrowRight size={16} />
+                                    </a>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

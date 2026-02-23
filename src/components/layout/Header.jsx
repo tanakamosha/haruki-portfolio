@@ -53,19 +53,25 @@ const Header = () => {
   }, [location.pathname]);
 
   // Handle Location Change for non-home pages
+  // Handle Location Change for non-home pages
   useEffect(() => {
     if (location.pathname !== '/') {
-      if (location.pathname.startsWith('/works')) setActiveSection('works');
-      else if (location.pathname.startsWith('/service')) setActiveSection('service');
-      else if (location.pathname.startsWith('/about')) setActiveSection('about');
-      else if (location.pathname.startsWith('/contact')) setActiveSection('contact');
-      else setActiveSection('');
+      let newSection = '';
+      if (location.pathname.startsWith('/works')) newSection = 'works';
+      else if (location.pathname.startsWith('/service')) newSection = 'service';
+      else if (location.pathname.startsWith('/about')) newSection = 'about';
+      else if (location.pathname.startsWith('/contact')) newSection = 'contact';
+
+      if (newSection && activeSection !== newSection) {
+        setActiveSection(newSection);
+      }
     } else {
       // Reset to home or trigger scroll handler (handled above)
       // Ensure home is default if at top
-      if (window.scrollY < 100) setActiveSection('home');
+      if (window.scrollY < 100 && activeSection !== 'home') setActiveSection('home');
     }
     setIsMenuOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const toggleMenu = () => {
@@ -98,18 +104,25 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button className="mobile-menu-toggle md:hidden" onClick={toggleMenu} aria-label="Toggle menu">
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        <button
+          className={`mobile-menu-toggle md:hidden p-2 rounded-md bg-transparent border-none transition-colors duration-200 flex items-center justify-center outline-none mr-4 ${isMenuOpen ? 'open text-white hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X size={32} strokeWidth={2.5} /> : <Menu size={32} strokeWidth={2.5} />}
         </button>
 
         {/* Mobile Nav Overlay */}
         <div className={`mobile-nav-overlay md:hidden ${isMenuOpen ? 'open' : ''}`}>
+          {/* Explicit Close Button Inside Overlay Removed - Toggle button handles it now */}
+
+
           <ul className="mobile-nav-links">
-            <li><Link to="/" className={getLinkClass('home')} onClick={() => setIsMenuOpen(false)} style={{ color: activeSection === 'home' ? '#2563eb' : '#0f172a' }}>HOME</Link></li>
-            <li><Link to="/works" className={getLinkClass('works')} onClick={() => setIsMenuOpen(false)} style={{ color: activeSection === 'works' ? '#2563eb' : '#0f172a' }}>WORKS</Link></li>
-            <li><Link to="/service" className={getLinkClass('service')} onClick={() => setIsMenuOpen(false)} style={{ color: activeSection === 'service' ? '#2563eb' : '#0f172a' }}>SERVICE</Link></li>
-            <li><Link to="/about" className={getLinkClass('about')} onClick={() => setIsMenuOpen(false)} style={{ color: activeSection === 'about' ? '#2563eb' : '#0f172a' }}>ABOUT</Link></li>
-            <li><Link to="/contact" className={getLinkClass('contact')} onClick={() => setIsMenuOpen(false)} style={{ color: activeSection === 'contact' ? '#2563eb' : '#0f172a' }}>CONTACT</Link></li>
+            <li><Link to="/" className={getLinkClass('home')} onClick={() => setIsMenuOpen(false)}>HOME</Link></li>
+            <li><Link to="/works" className={getLinkClass('works')} onClick={() => setIsMenuOpen(false)}>WORKS</Link></li>
+            <li><Link to="/service" className={getLinkClass('service')} onClick={() => setIsMenuOpen(false)}>SERVICE</Link></li>
+            <li><Link to="/about" className={getLinkClass('about')} onClick={() => setIsMenuOpen(false)}>ABOUT</Link></li>
+            <li><Link to="/contact" className={getLinkClass('contact')} onClick={() => setIsMenuOpen(false)}>CONTACT</Link></li>
           </ul>
         </div>
       </div>

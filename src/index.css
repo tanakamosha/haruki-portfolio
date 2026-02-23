@@ -44,6 +44,8 @@ h6 {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-main);
+  font-weight: 400;
+  /* Pulled back from bold to elegant Thin/Regular */
 }
 
 /* Specific Section Titles (English) */
@@ -81,28 +83,41 @@ section:nth-of-type(even) {
   background-color: var(--bg-secondary);
 }
 
-/* Button Styling (Refined) */
+/* Button Styling (Expert Minimalist) */
 .btn-primary,
 button,
 .btn-glow {
-  background: var(--gradient-btn);
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  /* Modern rounded corners */
+  background: transparent;
+  color: #0f172a !important;
+  /* Deep Navy text */
+  border: 1px solid #0f172a;
+  /* Solid thin border instead of gradient glow */
+  border-radius: 4px;
+  /* Slightly sharper corners */
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-  font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Slower, cinematic easing */
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  /* For future inner fill animations */
+  position: relative;
 }
 
-.btn-glow:hover {
-  background: var(--gradient-btn-hover);
+.btn-glow:hover,
+.btn-primary:hover {
+  background: #0f172a;
+  /* Fill solid dark */
+  color: #ffffff !important;
+  /* Text goes white */
+  border-color: #0f172a;
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  /* Gentle lift without shadow glow */
+  box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.15);
+  /* Elegant, subtle dark shadow, not blue */
 }
 
 /* Utilities */

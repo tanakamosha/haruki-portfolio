@@ -220,15 +220,19 @@
     }
 }
 
-/* Animation Classes (Shared) */
+/* Animation Classes (Premium Cinematic) */
 .fade-in-section {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: opacity, transform;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(10px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
 }
 
 .fade-in-section.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }

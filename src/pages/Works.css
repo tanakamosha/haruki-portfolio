@@ -4,7 +4,6 @@
 .works-page {
     position: relative;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* Background Layer (Fixed via CSS, nested in component) */
@@ -63,19 +62,25 @@ main,
 .works-page {
     background-color: transparent !important;
     background: transparent !important;
+    /* No overflow-x hidden here either if possible, but body usually needs it. 
+       Leaving body overflow alone, only removing from .works-page specific rule. */
 }
 
-/* Scroll Fade-in Animation */
+/* Scroll Fade-in Animation (Premium Cinematic) */
 .fade-in-section {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: opacity, transform;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(10px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
 }
 
 .fade-in-section.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
 /* Ensure content is above background */
@@ -97,22 +102,8 @@ main,
     /* Space between header and grid */
 }
 
-/* Decorative Background Text */
-.works-header::before {
-    content: 'WORKS';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18vw;
-    /* Responsive huge size */
-    font-weight: 900;
-    color: #f8f8f8;
-    z-index: -1;
-    letter-spacing: 0.1em;
-    pointer-events: none;
-    line-height: 1;
-}
+/* Decorative Background Text REMOVED to be handled by DOM */
+/* .works-header::before deleted */
 
 .works-header h1 {
     font-size: 5rem;
@@ -132,58 +123,108 @@ main,
     font-weight: 500;
 }
 
-/* Filter Area: Modern Pill Buttons - NUCLEAR OPTION */
+/* --- 2026 Vision Pro/Spatial UI Segmented Control --- */
 .filter-container {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 40px;
+    /* Ultra-frosted glass */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    padding: 6px;
+    border-radius: 999px;
+    margin: 30px auto 50px;
+    gap: 4px;
+    /* Soft floating shadow + crisp light border */
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 20;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Unique class to bypass conflicts */
-/* Unique class to bypass conflicts */
-/* Unique class to bypass conflicts */
+.filter-container:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 40px rgba(37, 99, 235, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+        inset 0 2px 6px rgba(255, 255, 255, 0.9);
+}
+
 .custom-filter-btn {
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: #64748b !important;
-    /* Inactive: Muted Blue-Gray */
-    color: #ffffff !important;
-    /* Text is ALWAYS White */
-    border: none !important;
-    border-radius: 50px !important;
-    padding: 12px 30px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    position: relative;
+    padding: 10px 28px !important;
+    border-radius: 999px !important;
     font-size: 14px !important;
-    font-weight: 700 !important;
-    /* Bold */
-    margin: 0 10px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em !important;
     cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    box-shadow: none !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    background: transparent !important;
+    border: none !important;
+    color: #475569 !important;
+    /* Cool Slate */
+    text-shadow: none !important;
     outline: none !important;
-    font-family: inherit;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    box-shadow: none !important;
+    z-index: 1;
 }
 
 .custom-filter-btn:hover {
-    background-color: #2563eb !important;
-    /* Hover: Brand Blue */
-    color: #ffffff !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+    color: #0f172a !important;
+    background: rgba(255, 255, 255, 0.4) !important;
 }
 
 .custom-filter-btn.active {
-    background-color: #2563eb !important;
-    /* Active: Brand Blue */
+    /* Liquid Blue Gradient */
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3) !important;
+    font-weight: 700 !important;
+    /* Vivid glow and dimensional inset */
+    box-shadow:
+        0 4px 14px rgba(37, 99, 235, 0.4),
+        0 0 0 1px rgba(37, 99, 235, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+    transform: scale(1.02) !important;
 }
 
 .custom-filter-btn.active:hover {
-    background-color: #1d4ed8 !important;
-    /* Active Hover: Darker Blue */
-    transform: translateY(-2px) !important;
+    box-shadow:
+        0 6px 20px rgba(37, 99, 235, 0.5),
+        0 0 0 1px rgba(37, 99, 235, 0.6),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Mobile 2026 Segmented Control Adjustments */
+@media (max-width: 768px) {
+    .filter-container {
+        display: flex;
+        width: calc(100% - 24px) !important;
+        max-width: 380px !important;
+        padding: 5px !important;
+        gap: 2px !important;
+        margin-bottom: 50px !important;
+        /* Re-enforce blur for mobile rendering */
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(20px) saturate(150%);
+        -webkit-backdrop-filter: blur(20px) saturate(150%);
+    }
+
+    .custom-filter-btn {
+        flex: 1 1 0% !important;
+        padding: 10px 0 !important;
+        font-size: 13px !important;
+        text-align: center !important;
+        letter-spacing: 0em !important;
+        /* Tighter on mobile */
+    }
 }
 
 
@@ -194,7 +235,8 @@ main,
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-bottom: 120px;
+    padding-bottom: 20px;
+    /* Reduced from 120px to fix empty section gap */
 }
 
 /* PC: 3 Columns */
@@ -216,25 +258,17 @@ main,
         /* Smaller on mobile */
     }
 
-    /* Mobile: Filter Buttons (2 Columns) */
-    .filter-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        margin-bottom: 60px;
-        width: 100%;
-        padding: 0 10px;
-        /* Slight padding */
+    /* Mobile Filter rules effectively moved up */
+
+    /* Shrink Background Shapes */
+    .shape-1 {
+        width: 250px;
+        height: 250px;
     }
 
-    .custom-filter-btn {
-        width: 100% !important;
-        margin: 0 !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 14px 0 !important;
-        /* Taller touch target */
+    .shape-2 {
+        width: 200px;
+        height: 200px;
     }
 
     /* Mobile: Modal Link Button (Full Width) */
@@ -494,25 +528,31 @@ main,
     font-weight: 600;
 }
 
-/* Site Link Button */
+/* Site Link Button (Expert Minimalist) */
 .site-link-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: #2563eb;
-    color: white;
+    background-color: transparent;
+    color: #0f172a;
     padding: 8px 16px;
-    border-radius: 6px;
+    border-radius: 4px;
+    /* Sharper */
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 600;
-    transition: background-color 0.2s;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid #0f172a;
     width: fit-content;
     margin-top: 5px;
+    box-shadow: none;
 }
 
 .site-link-btn:hover {
-    background-color: #1d4ed8;
+    background-color: #0f172a;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.15);
 }
 
 /* Modal text sections */

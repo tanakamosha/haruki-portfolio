@@ -116,7 +116,23 @@ const Contact = () => {
                             href="https://coconala.com/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-coconala"
+                            className="hero-cta-button"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: '1rem 2rem',
+                                fontSize: '1.1rem',
+                                fontWeight: '700',
+                                color: '#fff',
+                                backgroundColor: '#00c4cc',
+                                borderRadius: '9999px',
+                                textDecoration: 'none',
+                                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                                minWidth: '280px',
+                                transition: 'all 0.3s ease',
+                                letterSpacing: '0.05em'
+                            }}
                         >
                             ココナラで相談する
                         </a>

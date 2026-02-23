@@ -4,9 +4,9 @@ import { Mail, ExternalLink } from 'lucide-react';
 
 const CallToAction = () => {
     return (
-        <section className="section-cta fade-in-section" style={{ padding: '80px 20px', textAlign: 'center', backgroundColor: '#f8fafc', marginTop: '80px' }}>
+        <section className="section-cta fade-in-section" style={{ padding: '80px 20px', textAlign: 'center', backgroundColor: '#f8fafc' }}>
             <div className="cta-container max-w-4xl mx-auto">
-                <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: '#0f172a' }}>Ready to start a project?</h2>
+                <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: '#0f172a' }}>CONTACT</h2>
                 <p style={{ color: '#64748b', marginBottom: '40px', fontSize: '1.1rem' }}>
                     まずはお気軽にご相談ください。<br />
                     あなたのビジネスをデザインの力で加速させます。
