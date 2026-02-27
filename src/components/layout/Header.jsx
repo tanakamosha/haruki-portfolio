@@ -85,8 +85,10 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''} fixed top-0 w-full z-50`} style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', backdropFilter: 'blur(12px)' }}>
       <div className="header-container">
-        <div className="logo ml-5 mt-2 md:ml-0 md:mt-0">
-          <Link to="/" className="text-slate-900 font-bold text-xl tracking-wider">Haruki Wakiyama</Link>
+        <div className="logo header-logo">
+          <Link to="/" className="header-logo-link">
+            <img src="/rogo.svg" alt="Haruki Wakiyama Logo" className="header-logo-img" />
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -105,7 +107,7 @@ const Header = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`mobile-menu-toggle md:hidden p-2 rounded-md bg-transparent border-none transition-colors duration-200 flex items-center justify-center outline-none mr-4 ${isMenuOpen ? 'open text-white hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}
+          className={`mobile-menu-toggle md:hidden p-2 rounded-md bg-transparent border-none transition-colors duration-200 flex items-center justify-center flex-shrink-0 outline-none md:mr-0 ${isMenuOpen ? 'open text-white hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >

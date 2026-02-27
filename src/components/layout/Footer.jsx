@@ -10,7 +10,9 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                     {/* Left: Brand Identity */}
                     <div className="flex flex-col gap-2">
-                        <h2 className="text-2xl font-bold tracking-wider" style={{ fontFamily: 'Oswald, sans-serif' }}>Haruki Wakiyama</h2>
+                        <Link to="/" className="inline-block">
+                            <img src="/rogo.svg" alt="Haruki Wakiyama Logo" className="h-10 w-auto object-contain mb-2 brightness-0 invert" />
+                        </Link>
                         <span className="text-sm text-gray-400">Web & Graphic Designer</span>
                         <p className="text-xs text-gray-500 mt-2">デザインでビジネスを加速させる。</p>
                     </div>
