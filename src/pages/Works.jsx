@@ -16,11 +16,11 @@ const worksData = [
         focus: 'ヨガの持つ「リラックス」「マインドフルネス」なイメージを伝えるため、余白を広く取った清潔感のあるレイアウトにしました。AIを活用した心安らぐ背景画像を配置することで、訪問者に没入感を与えています。',
         period: '3週間',
         tools: 'React / Vite / CSS',
-        price: '¥250,000〜'
+        price: '¥30,000〜'
     },
     {
         id: 2,
-        title: 'ファルコン不動産（テスト版）',
+        title: '不動産ホームページ',
         category: 'Web',
         scope: 'デザイン / コーディング',
         image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
@@ -28,8 +28,21 @@ const worksData = [
         focus: '富裕層ターゲットを意識し、物件写真の魅力を引き立てるよう過度な装飾は抑えめにしました。上品なタイポグラフィとミニマルなレイアウトで、洗練されたブランドイメージを構築しつつ、コンシェルジュ相談への導線をスムーズに設計しています。',
         period: '2週間',
         tools: 'React / Vite / CSS',
-        price: '¥300,000〜',
+        price: '¥30,000〜',
         url: 'https://hudousan-test.vercel.app/'
+    },
+    {
+        id: 25, /* Unique ID for the new clinic */
+        title: 'クリニックホームページ',
+        category: 'Web',
+        scope: 'デザイン / コーディング',
+        image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop',
+        desc: '清潔感と信頼感を重視したクリニックのデモサイト。',
+        focus: '患者様が安心して来院できるよう、ブルーとホワイトを基調とした清潔感のある配色を採用。スマホからのアクセスを考慮し、Web予約への導線を画面下部に固定配置（Sticky UI）するなど、実用性とコンバージョンにこだわった設計を行いました。',
+        period: '2週間',
+        tools: 'React / Next.js / CSS',
+        price: '¥50,000〜',
+        url: 'https://clinic-portfolio.vercel.app/'
     },
 
     {
@@ -55,7 +68,7 @@ const worksData = [
         focus: 'キャラクターの個性を活かすため、少し丸みのあるポップなフォントと鮮やかな配色を採用し「楽しさ」が伝わるように設計しました。配信スケジュールやグッズ情報へアクセスしやすいファンフレンドリーな構成にこだわりました。',
         period: '3週間',
         tools: 'React / Vite / CSS',
-        price: '¥250,000〜',
+        price: '¥30,000〜',
         url: 'https://vtuber-demo.vercel.app/'
     },
     {
@@ -161,7 +174,7 @@ const Works = () => {
                         return (
                             <button
                                 key={category}
-                                className={`custom-filter-btn ${isActive ? 'active' : ''}`}
+                                className={`custom-filter-btn filter-btn-${category.toLowerCase()} ${isActive ? 'active' : ''}`}
                                 onClick={() => setFilter(category)}
                             >
                                 {category}
@@ -182,7 +195,7 @@ const Works = () => {
                         >
                             <div className="work-image-wrapper">
                                 <img src={work.image} alt={work.title} />
-                                <span className="work-category-badge">{work.category}</span>
+                                <span className={`work-category-badge badge-${work.category.toLowerCase()}`}>{work.category}</span>
                             </div>
                             <div className="work-info-content">
                                 <h3>{work.title}</h3>
@@ -208,7 +221,7 @@ const Works = () => {
                         <div className="modal-body" style={{ textAlign: 'left' }}>
                             <div style={{ textAlign: 'center', marginBottom: '30px' }}>
                                 <span
-                                    className="work-category-badge"
+                                    className={`work-category-badge badge-${selectedWork.category.toLowerCase()}`}
                                     style={{
                                         position: 'relative',
                                         top: 'auto',

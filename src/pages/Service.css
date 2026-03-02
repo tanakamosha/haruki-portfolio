@@ -30,8 +30,7 @@
     padding-bottom: 40px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 120px;
-    /* Increased from 60px for better clearance */
+    margin-bottom: 60px;
     padding-top: 0 !important;
     /* Managed by page container */
 }
@@ -68,8 +67,7 @@
     gap: 60px;
     width: 90%;
     max-width: 1200px;
-    margin: 120px auto 0;
-    /* Forced Top Margin for Spacing */
+    margin: 0 auto;
     padding-bottom: 120px;
     align-items: stretch;
 }

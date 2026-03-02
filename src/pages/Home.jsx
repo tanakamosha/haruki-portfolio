@@ -168,15 +168,7 @@ const Home = () => {
                                         <div style={{ padding: '32px', flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                                             <h3 style={{ fontSize: '1.25rem', marginBottom: '8px', color: '#111827' }}>{item.title}</h3>
                                             <p className="text-slate-600" style={{ fontSize: '0.9rem', marginBottom: '16px' }}>{item.cat}</p>
-                                            <span style={{
-                                                background: '#eff6ff',
-                                                color: '#2563eb',
-                                                padding: '4px 12px',
-                                                borderRadius: '99px',
-                                                fontSize: '0.8rem',
-                                                fontWeight: '500',
-                                                marginTop: 'auto'
-                                            }}>
+                                            <span className={`home-category-badge home-badge-${item.tag.toLowerCase()}`}>
                                                 {item.tag}
                                             </span>
                                         </div>

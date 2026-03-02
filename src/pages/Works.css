@@ -94,12 +94,11 @@ main,
 .works-header {
     text-align: center;
     padding-top: 100px !important;
-    /* Reduced from 160px */
     padding-bottom: 40px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 60px;
-    /* Space between header and grid */
+    margin-bottom: 20px;
+    /* Reduced from 60px/120px */
 }
 
 /* Decorative Background Text REMOVED to be handled by DOM */
@@ -134,7 +133,8 @@ main,
     -webkit-backdrop-filter: blur(24px) saturate(180%);
     padding: 6px;
     border-radius: 999px;
-    margin: 30px auto 50px;
+    margin: 30px auto 30px;
+    /* Centered vertically in the whitespace */
     gap: 4px;
     /* Soft floating shadow + crisp light border */
     box-shadow:
@@ -183,23 +183,35 @@ main,
 }
 
 .custom-filter-btn.active {
-    /* Liquid Blue Gradient */
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
     color: #ffffff !important;
     font-weight: 700 !important;
-    /* Vivid glow and dimensional inset */
-    box-shadow:
-        0 4px 14px rgba(37, 99, 235, 0.4),
-        0 0 0 1px rgba(37, 99, 235, 0.5),
-        inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
     transform: scale(1.02) !important;
 }
 
+/* Category Specific Active Filter Colors */
+.custom-filter-btn.active.filter-btn-all {
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%) !important;
+    box-shadow: 0 4px 14px rgba(30, 41, 59, 0.4), 0 0 0 1px rgba(30, 41, 59, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
+.custom-filter-btn.active.filter-btn-web {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4), 0 0 0 1px rgba(37, 99, 235, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
+.custom-filter-btn.active.filter-btn-print {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4), 0 0 0 1px rgba(234, 88, 12, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
+.custom-filter-btn.active.filter-btn-movie {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4), 0 0 0 1px rgba(225, 29, 72, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
 .custom-filter-btn.active:hover {
-    box-shadow:
-        0 6px 20px rgba(37, 99, 235, 0.5),
-        0 0 0 1px rgba(37, 99, 235, 0.6),
-        inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+    filter: brightness(1.1);
+    transform: scale(1.05) !important;
 }
 
 /* Mobile 2026 Segmented Control Adjustments */
@@ -348,8 +360,6 @@ main,
     position: absolute;
     top: 12px;
     left: 12px;
-    background-color: rgba(255, 255, 255, 0.95);
-    color: #2563eb;
     padding: 6px 14px;
     border-radius: 4px;
     font-size: 0.75rem;
@@ -358,7 +368,28 @@ main,
     letter-spacing: 0.05em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     z-index: 10;
-    /* Above overlay */
+    /* Default fallback */
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #2563eb;
+}
+
+/* Category Specific Colors (Background + Text) */
+.badge-web {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+    border: none;
+}
+
+.badge-print {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+    color: #ffffff !important;
+    border: none;
+}
+
+.badge-movie {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+    color: #ffffff !important;
+    border: none;
 }
 
 /* Info Content */

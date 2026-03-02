@@ -840,3 +840,33 @@ html {
         transform: translate(0, 0) rotate(0deg);
     }
 }
+
+/* =========================================
+   HOME CATEGORY BADGES
+   ========================================= */
+.home-category-badge {
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: auto;
+    display: inline-block;
+}
+
+.home-badge-web {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+    border: none;
+}
+
+.home-badge-print {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+    color: #ffffff !important;
+    border: none;
+}
+
+.home-badge-movie {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+    color: #ffffff !important;
+    border: none;
+}

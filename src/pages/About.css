@@ -16,8 +16,8 @@
     padding-bottom: 40px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 120px;
-    /* Large space below header */
+    margin-bottom: 60px;
+    /* Reduced space below header */
 }
 
 .about-header h1 {
@@ -48,10 +48,10 @@
     justify-content: flex-end;
 }
 
-.profile-image-placeholder {
+.profile-image {
     width: 300px;
     height: 300px;
-    background-color: #f3f4f6;
+    object-fit: cover;
     border-radius: 20px;
     /* Soft rounded corners */
 }
@@ -78,15 +78,41 @@
     font-size: 1rem;
 }
 
-/* Skills Section */
+/* Responsive Profile Section */
+@media (max-width: 768px) {
+    .profile-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .profile-image-wrapper {
+        justify-content: center;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .profile-title {
+        margin-bottom: 25px;
+    }
+}
+
+/* =========================================
+   SKILLS REDESIGN: TECH STACK GRID (Apple Style)
+   ========================================= */
+
 .skills-section {
     margin-top: 160px;
-    /* Big airy space */
+    position: relative;
+    z-index: 10;
 }
 
 .section-title-wrapper {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .section-title-wrapper h3 {
@@ -102,121 +128,119 @@
     margin-top: 10px;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+.tech-stack-container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 }
 
-.skill-card {
-    /* No border, just layout */
-    padding: 20px;
-    text-align: left;
+.tech-category {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.skill-category {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #f1f5f9;
-    /* Very subtle text color for category "background" feel */
-    display: block;
-    margin-bottom: -20px;
-    position: relative;
-    z-index: 0;
-    line-height: 1;
+.tech-category-title {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
+    margin-bottom: 10px;
 }
 
-/* Or maybe a more visible header style? Let's try simple elegant headers */
-.skill-category {
-    font-size: 1.5rem;
-    font-weight: 800;
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Premium Card Design */
+.tech-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #f8fafc;
+    /* Very subtle border */
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+.tech-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+    border-color: #e2e8f0;
+}
+
+/* Icon Styling (Monochrome & Premium) */
+.tech-icon-wrapper {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    border-radius: 12px;
+    color: #475569;
+    /* Slate Gray for monochrome elegant look */
+    transition: color 0.4s ease, background 0.4s ease;
+}
+
+/* Slight color shift on hover for a playful touch, while keeping it mostly monochrome */
+.tech-card:hover .tech-icon-wrapper {
+    background: #0f172a;
+    /* Dark text color as bg */
+    color: #ffffff;
+    /* White icon */
+}
+
+.tech-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tech-title {
+    font-size: 1.05rem;
+    font-weight: 600;
     color: #0f172a;
-    display: block;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-/* Line decoration without border-bottom on the whole card */
-.skill-category::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 4px;
-    background-color: #2563eb;
-    border-radius: 2px;
-}
-
-.skill-list {
-    list-style: none;
-    padding: 0;
     margin: 0;
 }
 
-.skill-list li {
-    color: #475569;
-    margin-bottom: 12px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
+.tech-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
 }
 
-.skill-list li::before {
-    content: '•';
-    color: #2563eb;
-    margin-right: 10px;
-    font-size: 1.2rem;
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .about-header h1 {
-        font-size: 3.5rem;
-    }
-
-    .profile-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .profile-image-wrapper {
-        justify-content: center;
-    }
-
-    .profile-content h2 {
-        font-size: 2rem;
-        margin-top: 20px;
-    }
-
-    .profile-title {
-        margin-bottom: 30px;
-    }
-
-    .profile-text {
-        text-align: left;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 640px) {
+    .tech-stack-container {
         gap: 60px;
     }
 
-    .skill-card {
-        text-align: center;
+    .tech-grid {
+        grid-template-columns: 1fr;
     }
 
-    .skill-category::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .skill-list li {
-        justify-content: center;
+    .tech-card {
+        padding: 20px;
     }
 }
 
