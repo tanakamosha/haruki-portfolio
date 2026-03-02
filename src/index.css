@@ -51,10 +51,20 @@ h6 {
 /* Specific Section Titles (English) */
 .section-title,
 h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
   letter-spacing: 0.2em !important;
   /* Elegant spacing */
   margin-bottom: 4px !important;
   /* Reduced for tighter lockup with Japanese */
+}
+
+@media (max-width: 768px) {
+
+  .section-title,
+  h2 {
+    font-size: 1.8rem;
+  }
 }
 
 /* Paragraphs */
@@ -564,4 +574,33 @@ body,
 .select-none {
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Global Background Text Watermark */
+.page-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15vw;
+  /* Scales with viewport width */
+  font-weight: 900;
+  color: #f3f4f6;
+  /* Consistent light gray */
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+  letter-spacing: normal;
+  font-family: 'Oswald', sans-serif;
+  /* Keep consistent with headings if desired, or default Noto Sans */
+}
+
+/* Mobile specific scale for background text to prevent overflow or being too small */
+@media (max-width: 768px) {
+  .page-bg-text {
+    font-size: 22vw;
+    /* Make background text slightly more visible on mobile */
+  }
 }

@@ -144,7 +144,7 @@ const Home = () => {
 
                 <div style={{ ...baseContainerStyle, position: 'relative', zIndex: 1 }} className="max-w-6xl mx-auto px-4">
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">SELECTED WORKS</h2>
+                        <h2 className="section-title">SELECTED WORKS</h2>
                         <span className="text-slate-600">制作実績</span>
                     </div>
 
@@ -207,7 +207,7 @@ const Home = () => {
             <section id="section-service" className="scroll-mt-20" style={{ padding: '70px 0', position: 'relative', zIndex: 30, backgroundColor: '#ffffff' }}>
                 <div style={baseContainerStyle} className="max-w-6xl mx-auto px-4">
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">SERVICES</h2>
+                        <h2 className="section-title">SERVICES</h2>
                         <span className="text-slate-600">事業内容</span>
                     </div>
 
@@ -303,13 +303,7 @@ const Home = () => {
 
                 <div className="strengths-content-fix max-w-5xl mx-auto px-4 relative z-20" style={{ ...baseContainerStyle }}>
                     <div className="fade-up-element strengths-header-overlap" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{
-                            fontSize: '2.5rem',
-                            marginBottom: '4px',
-                            color: '#111827',
-                            fontWeight: '600',
-                            letterSpacing: '0.1em'
-                        }} className="tracking-widest">STRENGTHS</h2>
+                        <h2 className="section-title">STRENGTHS</h2>
                         <span style={{ color: '#64748b' }}>強み</span>
                     </div>
 
@@ -338,7 +332,7 @@ const Home = () => {
             <section className="scroll-mt-20" style={{ padding: '70px 0', backgroundColor: '#ffffff' }}>
                 <div style={baseContainerStyle} className="max-w-4xl mx-auto px-4">
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111827', letterSpacing: '0.1em' }} className="tracking-widest">WORK FLOW</h2>
+                        <h2 className="section-title">WORK FLOW</h2>
                         <span className="text-slate-600">制作の流れ</span>
                     </div>
 

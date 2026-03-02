@@ -13,12 +13,22 @@ const worksData = [
         scope: 'デザイン / コーディング',
         image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop',
         desc: 'Relaxing yoga studio website.',
-        issue: 'オンライン予約機能がなく、デザインが古くなっていた。',
-        solution: '清潔感のあるミニマルなデザインを採用。AIを活用して、心安らぐ背景画像を生成・配置しました。',
-        result: '公開初月の予約数が40%増加しました。',
+        focus: 'ヨガの持つ「リラックス」「マインドフルネス」なイメージを伝えるため、余白を広く取った清潔感のあるレイアウトにしました。AIを活用した心安らぐ背景画像を配置することで、訪問者に没入感を与えています。',
         period: '3週間',
-        tools: 'Figma / React / Tailwind',
-        price: '¥250,000〜',
+        tools: 'React / Vite / CSS',
+        price: '¥250,000〜'
+    },
+    {
+        id: 2,
+        title: 'ファルコン不動産（テスト版）',
+        category: 'Web',
+        scope: 'デザイン / コーディング',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
+        desc: '都心の高級物件を扱う不動産仲介のデモサイト。',
+        focus: '富裕層ターゲットを意識し、物件写真の魅力を引き立てるよう過度な装飾は抑えめにしました。上品なタイポグラフィとミニマルなレイアウトで、洗練されたブランドイメージを構築しつつ、コンシェルジュ相談への導線をスムーズに設計しています。',
+        period: '2週間',
+        tools: 'React / Vite / CSS',
+        price: '¥300,000〜',
         url: 'https://hudousan-test.vercel.app/'
     },
 
@@ -29,27 +39,24 @@ const worksData = [
         scope: '実績準備中',
         image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop',
         desc: '現在、公開可能な動画ポートフォリオを準備中です。',
-        issue: '動画編集の実績サンプルは、ご相談いただいた際に個別にご案内可能です。',
-        solution: 'YouTube Shorts・TikTok等の1分未満のショート動画から、YouTube本編動画まで幅広く対応しております。詳細な料金や納期については「CONTACT」よりお問い合わせください。',
-        result: '視聴維持率を高めるテンポの良い編集で、SNSに最適化した動画を提供します。',
+        focus: 'YouTube Shorts・TikTok等のショート動画から長尺まで幅広く対応しております。視聴維持率を高めるテンポの良い編集や、企画・構成からのご相談もお受けしています。詳細については「CONTACT」よりお問い合わせください。',
         period: '要相談',
         tools: 'Premiere Pro / After Effects',
         price: '¥5,000〜'
     },
+
     {
-        id: 4,
-        title: 'Ec-Site Redesign',
+        id: 5,
+        title: 'VTuber Official Site',
         category: 'Web',
-        scope: 'UI/UXデザイン',
-        image: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?q=80&w=2670&auto=format&fit=crop',
-        desc: 'Modernizing an online store.',
-        issue: 'カート放棄率（カゴ落ち）が高止まりしていた。',
-        solution: 'チェックアウトプロセスを簡素化し、AIを活用したレコメンド機能を導入しました。',
-        result: 'コンバージョン率が15%向上しました。',
-        period: '2ヶ月',
-        tools: 'Figma / Next.js / Supabase',
-        price: '¥800,000〜',
-        url: 'https://example.com'
+        scope: 'デザイン / コーディング',
+        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop',
+        desc: 'ポップで親しみやすいVTuberの公式サイトデモ。',
+        focus: 'キャラクターの個性を活かすため、少し丸みのあるポップなフォントと鮮やかな配色を採用し「楽しさ」が伝わるように設計しました。配信スケジュールやグッズ情報へアクセスしやすいファンフレンドリーな構成にこだわりました。',
+        period: '3週間',
+        tools: 'React / Vite / CSS',
+        price: '¥250,000〜',
+        url: 'https://vtuber-demo.vercel.app/'
     },
     {
         id: 7,
@@ -58,9 +65,7 @@ const worksData = [
         scope: 'フライヤーデザイン',
         image: '/tirasi3.png',
         desc: '架空のジャズフェスティバルの魅力を伝える、スタイリッシュなフライヤーデザインです。',
-        issue: '若年層のアートファンを新たに取り込みたいという要望があった。',
-        solution: '夜の街のネオンを想起させる配色と、躍動感のあるタイポグラフィで「非日常感」を演出しました。',
-        result: 'イベントのプレオーダー数が前年比150%を記録。',
+        focus: '若年層のアートファンにも響くよう、夜の街のネオンを想起させる配色と、躍動感のあるタイポグラフィを用いて「非日常感・ワクワク感」を引き出すレイアウトにこだわりました。',
         period: '5日間',
         tools: 'Illustrator / Photoshop',
         price: '¥50,000〜'
@@ -72,9 +77,7 @@ const worksData = [
         scope: 'チラシデザイン',
         image: '/tirasi4.png',
         desc: 'ターゲット層に合わせ、情報をわかりやすく整理したセミナー集客用デザインです。',
-        issue: '「ITは難しい」というイメージを払拭し、初心者を集客したい。',
-        solution: '親しみやすいイラストと、視線の流れを意識したレイアウトで、ベネフィットを直感的に伝えました。',
-        result: '定員50名が配布後1週間で満席となりました。',
+        focus: '「ITは難しい」というハードルを下げるため、親しみやすいイラストを活用。視線の流れ（Zの法則など）を意識して情報を整理し、参加によるベネフィットが瞬時に伝わるように工夫しています。',
         period: '3日間',
         tools: 'Illustrator',
         price: '¥30,000〜'
@@ -86,9 +89,7 @@ const worksData = [
         scope: 'バナー / チラシ',
         image: '/tirasi5.jpg',
         desc: 'サービスの魅力を視覚的にわかりやすく伝えるPR用グラフィック制作です。',
-        issue: '数あるサービスの中で、一目で「信頼」と「高品質」を伝える必要があった。',
-        solution: '実績数字を強調しつつ、ポートフォリオの一部をコラージュして「作れるものの幅広さ」を表現しました。',
-        result: '閲覧数（PV）と問い合わせ率が大幅に向上。',
+        focus: '数ある同業サービスの中でも一目で「信頼」と「高品質」を感じてもらうため、実績となる数字を大きく強調。さらに過去のポートフォリオをコラージュ風に配置し、「作れるものの幅の広さ」を直感的にアピールしました。',
         period: '2日間',
         tools: 'Photoshop / Figma',
         price: '¥15,000〜'
@@ -147,26 +148,12 @@ const Works = () => {
 
             <Section className="works-header fade-in-section">
                 {/* Background Watermark (Physical DOM to match Service/About) */}
-                <div style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    fontSize: "18vw",
-                    fontWeight: "900",
-                    color: "#f8f8f8",
-                    zIndex: 0,
-                    pointerEvents: "none",
-                    whiteSpace: "nowrap",
-                    userSelect: "none",
-                    lineHeight: 1,
-                    letterSpacing: "0.1em"
-                }}>
+                <div className="page-bg-text">
                     WORKS
                 </div>
 
-                <h1>WORKS</h1>
-                <p>Webから紙媒体、動画まで、これまでの制作実績をご紹介します。</p>
+                <h1 style={{ position: 'relative', zIndex: 10 }}>WORKS</h1>
+                <p style={{ position: 'relative', zIndex: 10 }}>Webから紙媒体、動画まで、これまでの制作実績をご紹介します。</p>
 
                 <div className="filter-container fade-in-section">
                     {['All', 'Web', 'Print', 'Movie'].map(category => {
@@ -261,22 +248,10 @@ const Works = () => {
                                 )}
                             </div>
 
-                            {selectedWork.issue && (
+                            {selectedWork.focus && (
                                 <div className="modal-section">
-                                    <h4>課題 (Issue)</h4>
-                                    <p>{selectedWork.issue}</p>
-                                </div>
-                            )}
-                            {selectedWork.solution && (
-                                <div className="modal-section">
-                                    <h4>解決策 (Solution)</h4>
-                                    <p>{selectedWork.solution}</p>
-                                </div>
-                            )}
-                            {selectedWork.result && (
-                                <div className="modal-section">
-                                    <h4>結果 (Result)</h4>
-                                    <p>{selectedWork.result}</p>
+                                    <h4>こだわったポイント (Focus)</h4>
+                                    <p>{selectedWork.focus}</p>
                                 </div>
                             )}
 

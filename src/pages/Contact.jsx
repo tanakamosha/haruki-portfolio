@@ -30,20 +30,7 @@ const Contact = () => {
         <div className="contact-page page-transition">
             <Section className="contact-header fade-in-section">
                 {/* Background Watermark (Physical DOM) */}
-                <div style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    fontSize: "15vw",
-                    fontWeight: "900",
-                    color: "#f3f4f6", /* Very light gray */
-                    zIndex: 0,
-                    pointerEvents: "none",
-                    whiteSpace: "nowrap",
-                    userSelect: "none",
-                    lineHeight: 1
-                }}>
+                <div className="page-bg-text">
                     CONTACT
                 </div>
 
