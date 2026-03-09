@@ -11,7 +11,7 @@ const Footer = () => {
                     {/* Left: Brand Identity */}
                     <div className="flex flex-col gap-2">
                         <Link to="/" className="inline-block">
-                            <img src="/rogo.svg" alt="Haruki Wakiyama Logo" className="h-10 w-auto object-contain mb-2 brightness-0 invert" />
+                            <img src="/rogo-white.svg" alt="Haruki Wakiyama Logo" className="h-10 w-auto object-contain mb-2 opacity-90" />
                         </Link>
                         <span className="text-sm text-gray-400">Web & Graphic Designer</span>
                         <p className="text-xs text-gray-500 mt-2">デザインでビジネスを加速させる。</p>
@@ -21,11 +21,11 @@ const Footer = () => {
                     <div className="flex flex-col gap-4 items-start">
                         <h3 className="text-sm font-bold" style={{ color: '#ffffff', opacity: 1, position: 'relative', zIndex: 50 }}>MENU</h3>
                         <ul className="flex flex-col gap-4 items-start list-none p-0 m-0" style={{ listStyle: 'none' }}>
-                            <li><Link to="/" className="text-sm hover:text-blue-400 transition-colors inline-block">HOME</Link></li>
-                            <li><Link to="/works" className="text-sm hover:text-blue-400 transition-colors inline-block">WORKS</Link></li>
-                            <li><Link to="/service" className="text-sm hover:text-blue-400 transition-colors inline-block">SERVICE</Link></li>
-                            <li><Link to="/about" className="text-sm hover:text-blue-400 transition-colors inline-block">ABOUT</Link></li>
-                            <li><Link to="/contact" className="text-sm hover:text-blue-400 transition-colors inline-block">CONTACT</Link></li>
+                            <li><Link to="/" className="text-sm hover:text-blue-400 transition-colors inline-block text-gray-400">HOME</Link></li>
+                            <li><Link to="/works" className="text-sm hover:text-blue-400 transition-colors inline-block text-gray-400">WORKS</Link></li>
+                            <li><Link to="/service" className="text-sm hover:text-blue-400 transition-colors inline-block text-gray-400">SERVICE</Link></li>
+                            <li><Link to="/about" className="text-sm hover:text-blue-400 transition-colors inline-block text-gray-400">ABOUT</Link></li>
+                            <li><Link to="/contact" className="text-sm hover:text-blue-400 transition-colors inline-block text-gray-400">CONTACT</Link></li>
                         </ul>
                     </div>
 
@@ -33,14 +33,14 @@ const Footer = () => {
                     <div className="flex flex-col gap-4 items-start">
                         <h3 className="text-sm font-bold" style={{ color: '#ffffff', opacity: 1, position: 'relative', zIndex: 50 }}>LEGAL & SOCIAL</h3>
                         <ul className="flex flex-col gap-2 mb-2 items-start list-none p-0 m-0" style={{ listStyle: 'none' }}>
-                            <li><Link to="/privacy" className="text-sm hover:text-blue-400 transition-colors inline-block">プライバシーポリシー</Link></li>
-                            <li><Link to="/law" className="text-sm hover:text-blue-400 transition-colors inline-block">特定商取引法に基づく表記</Link></li>
+                            <li><Link to="/privacy" className="text-sm hover:text-blue-400 transition-colors inline-block text-gray-400">プライバシーポリシー</Link></li>
+                            <li><Link to="/law" className="text-sm hover:text-blue-400 transition-colors inline-block text-gray-400">特定商取引法に基づく表記</Link></li>
                         </ul>
                         <div className="flex gap-4">
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-white hover:text-blue-400 transition-colors">
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-gray-400 hover:text-blue-400 transition-colors">
                                 <Twitter size={20} />
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-blue-400 transition-colors">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-gray-400 hover:text-blue-400 transition-colors">
                                 <Instagram size={20} />
                             </a>
                         </div>

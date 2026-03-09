@@ -44,14 +44,16 @@ const services = [
     }
 ];
 
+
+
+
+
 const flowSteps = [
     { num: '01', title: 'Hearing', jpTitle: 'ヒアリング', desc: '現状の課題や制作の目的、ご希望のイメージを丁寧にヒアリングいたします。' },
     { num: '02', title: 'Planning', jpTitle: '企画・構成', desc: 'ヒアリング内容を元に構成案やデザインラフを作成し、方向性をすり合わせます。' },
     { num: '03', title: 'Production', jpTitle: '制作・実装', desc: 'デザインの作り込みとコーディング（または動画編集）を行い、形にしていきます。' },
     { num: '04', title: 'Delivery', jpTitle: '確認・納品', desc: '最終確認を経て、ご指定の形式で納品、またはWebサイトを公開いたします。' }
 ];
-
-
 
 const Service = () => {
     // Scroll Fade-in Logic (Copied from Works.jsx)

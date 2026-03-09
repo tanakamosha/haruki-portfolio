@@ -151,7 +151,7 @@ const Home = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 md:px-0">
                         {[
                             { title: 'Namaste Shavasana', cat: 'Webデザイン / コーディング', tag: 'Web', img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop' },
-                            { title: 'Tech Innovations Inc.', cat: '会社案内パンフレット', tag: 'Print', img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop' },
+                            { title: 'Tech Innovations Inc.', cat: '会社案内パンフレット', tag: 'Print', img: '/会社案内.jpg' },
                             { title: 'Coming Soon', cat: '現在準備中', tag: 'Movie', img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop' }
                         ].map((item, index) => (
                             <div key={index} className="w-full h-full">
@@ -162,7 +162,7 @@ const Home = () => {
                                         transition: 'transform 0.3s ease',
                                         boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)'
                                     }}>
-                                        <div className="h-64 overflow-hidden relative">
+                                        <div className="overflow-hidden relative bg-gray-100" style={{ aspectRatio: '16/9', width: '100%' }}>
                                             <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
                                         </div>
                                         <div style={{ padding: '32px', flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
@@ -233,7 +233,7 @@ const Home = () => {
                                     transition: 'transform 0.3s ease',
                                     border: '1px solid #e2e8f0'
                                 }}>
-                                    <div className="h-48 overflow-hidden relative">
+                                    <div className="overflow-hidden relative bg-gray-100" style={{ aspectRatio: '16/9', width: '100%' }}>
                                         <img
                                             src={item.img}
                                             alt={item.alt || item.title}
