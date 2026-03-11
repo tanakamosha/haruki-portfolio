@@ -8,41 +8,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Active Section State
-  const [activeSection, setActiveSection] = useState('home');
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
-      // Scroll Spy for Home Page
-      if (location.pathname === '/' || location.pathname === '') {
-        const scrollPosition = window.scrollY + 100; // Offset for header
-
-        const sections = [
-          { id: 'section-home', name: 'home' },
-          { id: 'section-works', name: 'works' },
-          { id: 'section-service', name: 'service' },
-          { id: 'contact', name: 'contact' }
-        ];
-
-        let found = false;
-        // Check sections in reverse order to catch the last one first if overlapping
-        // Or standard: find first one that matches
-        // Actually, let's just find the one where scroll >= top
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const section = sections[i];
-          const element = document.getElementById(section.id);
-          if (element) {
-            if (scrollPosition >= element.offsetTop) {
-              setActiveSection(section.name);
-              found = true;
-              break;
-            }
-          }
-        }
-        if (!found && window.scrollY < 100) setActiveSection('home');
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -50,28 +18,11 @@ const Header = () => {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, []);
 
-  // Handle Location Change for non-home pages
-  // Handle Location Change for non-home pages
+  // Close mobile menu on location change
   useEffect(() => {
-    if (location.pathname !== '/') {
-      let newSection = '';
-      if (location.pathname.startsWith('/works')) newSection = 'works';
-      else if (location.pathname.startsWith('/service')) newSection = 'service';
-      else if (location.pathname.startsWith('/about')) newSection = 'about';
-      else if (location.pathname.startsWith('/contact')) newSection = 'contact';
-
-      if (newSection && activeSection !== newSection) {
-        setActiveSection(newSection);
-      }
-    } else {
-      // Reset to home or trigger scroll handler (handled above)
-      // Ensure home is default if at top
-      if (window.scrollY < 100 && activeSection !== 'home') setActiveSection('home');
-    }
     setIsMenuOpen(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const toggleMenu = () => {
@@ -79,7 +30,10 @@ const Header = () => {
   };
 
   const getLinkClass = (name) => {
-    return activeSection === name ? 'active' : '';
+    if (name === 'home') {
+      return (location.pathname === '/' || location.pathname === '') ? 'active' : '';
+    }
+    return location.pathname.startsWith(`/${name}`) ? 'active' : '';
   };
 
   return (
